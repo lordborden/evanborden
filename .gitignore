@@ -1,0 +1,35 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+.#*
+.idea/
+.vscode/
+
+# Large binaries — keep these out of git, manage separately
+# (matches QUADRANT-v0.1a.mp4, Robot01-samples.zip, etc.)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.m4v
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tbz
+*.rar
+*.7z
+*.iso
+*.dmg
+
+# Backups / scratch
+*.bak
+*.orig
+*.tmp
