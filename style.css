@@ -256,6 +256,11 @@ html, body {
   font-variation-settings: 'opsz' 144, 'SOFT' 100, 'wght' 320;
   line-height: 0.82;
   letter-spacing: -0.045em;
+  /* Compensate for negative letter-spacing trimming the box on the right —
+     the B's lower bowl was rendering outside the element's content box and
+     therefore outside the background-clip:text region. Equal padding on
+     both sides keeps the visual centering. */
+  padding: 0 0.06em;
   user-select: none;
   display: inline-block;
 
