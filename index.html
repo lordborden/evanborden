@@ -1,6 +1,5 @@
-
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161035145-1"></script>
@@ -8,15 +7,129 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      
+
       gtag('config', 'UA-161035145-1');
     </script>
+
     <meta charset="utf-8">
     <title>Evan Borden</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060303">
+    <meta name="description" content="Evan Borden">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..500,0..100&family=JetBrains+Mono:wght@300;400&display=swap">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1 style="margin:0">Evan Borden</h1>
+    <main class="stage">
+      <!-- The colorful field that the glass refracts -->
+      <div class="field" aria-hidden="true">
+        <div class="orb orb--scarlet"></div>
+        <div class="orb orb--ember"></div>
+        <div class="orb orb--rust"></div>
+        <div class="orb orb--cocoa"></div>
+        <div class="orb orb--cream"></div>
+      </div>
+
+      <!-- Escher tessellation: isometric cube pattern (Cubic Space Division).
+           Tiles via a hex lattice of cubes that flip between pointing-up and
+           pointing-down depending on how the eye reads them. Three rhombi per
+           cube (top/left/right faces), three alpha values for shaded depth.
+           Wrap-around triangles at top of tile fill clipping gaps when tiled. -->
+      <svg class="architecture" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <!-- Tile is s√3 wide × 3s tall (s=40). Contains: a full hex centered
+               at (34.64, 40), the upper hex on each edge centered at (0, 100)
+               and (69.28, 100), plus 2 wrap-around triangles at the top edge
+               that — when this tile is repeated vertically — supply the bottom
+               vertex of each cube in the row above. Without these triangles,
+               every tile boundary shows a flat horizontal seam. -->
+          <pattern id="iso-cubes" x="0" y="0" width="69.28" height="120" patternUnits="userSpaceOnUse">
+            <!-- Wrap-around: bottom-tip of cube from row above (right face) -->
+            <polygon points="0,0 34.64,0 0,20"        fill="rgba(245, 237, 228, 0.05)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <!-- Wrap-around: bottom-tip of cube from row above (left face) -->
+            <polygon points="34.64,0 69.28,0 69.28,20" fill="rgba(245, 237, 228, 0.14)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+
+            <!-- Full hex centered at (34.64, 40) — top, left, right faces -->
+            <polygon points="34.64,0 69.28,20 34.64,40 0,20"      fill="rgba(245, 237, 228, 0.30)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <polygon points="0,20 34.64,40 34.64,80 0,60"         fill="rgba(245, 237, 228, 0.14)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <polygon points="69.28,20 69.28,60 34.64,80 34.64,40" fill="rgba(245, 237, 228, 0.05)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+
+            <!-- Half-hex on left edge, centered at (0, 100) — visible right half -->
+            <polygon points="0,60 34.64,80 0,100 -34.64,80"      fill="rgba(245, 237, 228, 0.30)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <polygon points="-34.64,80 0,100 0,140 -34.64,120"   fill="rgba(245, 237, 228, 0.14)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <polygon points="34.64,80 34.64,120 0,140 0,100"     fill="rgba(245, 237, 228, 0.05)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+
+            <!-- Half-hex on right edge, centered at (69.28, 100) — visible left half -->
+            <polygon points="69.28,60 103.92,80 69.28,100 34.64,80"  fill="rgba(245, 237, 228, 0.30)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <polygon points="34.64,80 69.28,100 69.28,140 34.64,120" fill="rgba(245, 237, 228, 0.14)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+            <polygon points="103.92,80 103.92,120 69.28,140 69.28,100" fill="rgba(245, 237, 228, 0.05)" stroke="rgba(245, 237, 228, 0.50)" stroke-width="0.8"/>
+          </pattern>
+        </defs>
+
+        <rect x="0" y="0" width="1600" height="1000" fill="url(#iso-cubes)"/>
+      </svg>
+
+      <!-- Escher-style impossible / bistable wireframe figures -->
+      <div class="figures" aria-hidden="true">
+        <!-- Isometric cube: hexagonal outline with internal Y, bistable up/down -->
+        <div class="figure figure--isocube">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M 50 8 L 88 30 L 88 70 L 50 92 L 12 70 L 12 30 Z"/>
+              <path d="M 50 50 L 50 8"/>
+              <path d="M 50 50 L 88 70"/>
+              <path d="M 50 50 L 12 70"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Necker cube: ambiguous which face is in front -->
+        <div class="figure figure--necker">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M 20 40 L 65 40 L 65 85 L 20 85 Z"/>
+              <path d="M 35 22 L 80 22 L 80 67 L 35 67 Z"/>
+              <path d="M 20 40 L 35 22"/>
+              <path d="M 65 40 L 80 22"/>
+              <path d="M 20 85 L 35 67"/>
+              <path d="M 65 85 L 80 67"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Tetrahedron projected to 2D -->
+        <div class="figure figure--tetra">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M 50 12 L 92 84 L 8 84 Z"/>
+              <path d="M 50 58 L 50 12"/>
+              <path d="M 50 58 L 92 84"/>
+              <path d="M 50 58 L 8 84"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- The art piece -->
+      <section class="piece">
+        <div class="piece__inner" data-tilt>
+          <h1 class="monogram" aria-label="EB">EB</h1>
+
+          <p class="name">
+            <span>Evan</span><span class="name__sep" aria-hidden="true"></span><span>Borden</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Subtle film grain -->
+      <div class="grain" aria-hidden="true"></div>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
