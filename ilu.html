@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Saturday, Bobo Loves You ♥</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse at top, #4a2c5c 0%, #2a1838 60%, #1a0f24 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    gap: 18px;
+  }
+  .frame {
+    background: #14081f;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow:
+      inset 0 0 0 2px #3a1f54,
+      0 0 0 3px #14081f,
+      0 24px 70px rgba(0,0,0,0.55),
+      0 0 80px rgba(255, 126, 182, 0.15);
+  }
+  #art {
+    width: 100%;
+    max-width: 540px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    display: block;
+    border-radius: 4px;
+  }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  button {
+    background: linear-gradient(180deg, #ff8ac0 0%, #ff6ba8 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 6px 18px rgba(255,107,168,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    letter-spacing: 0.4px;
+  }
+  button:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(255,107,168,0.45), inset 0 1px 0 rgba(255,255,255,0.3); }
+  button:active { transform: translateY(0); }
+  .caption { color: #d4b8e0; font-size: 12px; opacity: 0.7; letter-spacing: 0.5px; }
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <svg id="art" viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"></svg>
+</div>
+
+<div class="actions">
+  <button onclick="downloadPNG()">↓ Save as PNG</button>
+</div>
+<div class="caption">made with pixels &amp; love ✿</div>
+
+<script>
+const PIXEL = 3;
+const W = 200, H = 130;
+
+const FONT = {
+  'H':['X...X','X...X','X...X','XXXXX','X...X','X...X','X...X'],
+  'A':['.XXX.','X...X','X...X','XXXXX','X...X','X...X','X...X'],
+  'P':['XXXX.','X...X','X...X','XXXX.','X....','X....','X....'],
+  'Y':['X...X','X...X','.X.X.','..X..','..X..','..X..','..X..'],
+  'S':['.XXXX','X....','X....','.XXX.','....X','....X','XXXX.'],
+  'T':['XXXXX','..X..','..X..','..X..','..X..','..X..','..X..'],
+  'U':['X...X','X...X','X...X','X...X','X...X','X...X','.XXX.'],
+  'R':['XXXX.','X...X','X...X','XXXX.','X.X..','X..X.','X...X'],
+  'D':['XXXX.','X...X','X...X','X...X','X...X','X...X','XXXX.'],
+  'B':['XXXX.','X...X','X...X','XXXX.','X...X','X...X','XXXX.'],
+  'O':['.XXX.','X...X','X...X','X...X','X...X','X...X','.XXX.'],
+  'L':['X....','X....','X....','X....','X....','X....','XXXXX'],
+  'V':['X...X','X...X','X...X','X...X','.X.X.','.X.X.','..X..'],
+  'E':['XXXXX','X....','X....','XXXX.','X....','X....','XXXXX'],
+  ',':['.....','.....','.....','.....','.....','..XX.','.XX..'],
+  ' ':['.....','.....','.....','.....','.....','.....','.....']
+};
+
+const svg = document.getElementById('art');
+let buf = '';
+
+const px = (x,y,c) => buf += `<rect x="${x*PIXEL}" y="${y*PIXEL}" width="${PIXEL}" height="${PIXEL}" fill="${c}"/>`;
+const rc = (x,y,w,h,c) => buf += `<rect x="${x*PIXEL}" y="${y*PIXEL}" width="${w*PIXEL}" height="${h*PIXEL}" fill="${c}"/>`;
+
+function drawText(text, x, y, color, scale=2) {
+  let cx = x;
+  for (const ch of text.toUpperCase()) {
+    const g = FONT[ch];
+    if (!g) { cx += 6*scale; continue; }
+    for (let row = 0; row < 7; row++) {
+      for (let col = 0; col < 5; col++) {
+        if (g[row][col] === 'X') {
+          rc(cx + col*scale, y + row*scale, scale, scale, color);
+        }
+      }
+    }
+    cx += 6*scale;
+  }
+}
+
+function sprite(spr, x, y, palette) {
+  for (let row = 0; row < spr.length; row++) {
+    for (let col = 0; col < spr[row].length; col++) {
+      const ch = spr[row][col];
+      if (palette[ch]) px(x+col, y+row, palette[ch]);
+    }
+  }
+}
+
+// === SKY (sunset gradient bands) ===
+const skyBands = [
+  ['#f0a4c0', 0,  14],
+  ['#f5b3c4', 14, 14],
+  ['#fac2c0', 28, 14],
+  ['#fdcfb4', 42, 14],
+  ['#ffd9a8', 56, 17],
+  ['#ffe2b0', 73, 17],
+];
+for (const [c, y, h] of skyBands) rc(0, y, W, h, c);
+
+// === SUN with glow ===
+const sx = 162, sy = 14;
+const halo = [
+  '....XXXX....',
+  '..XXXXXXXX..',
+  '.XXXXXXXXXX.',
+  'XXXXXXXXXXXX',
+  'XXXXXXXXXXXX',
+  'XXXXXXXXXXXX',
+  'XXXXXXXXXXXX',
+  'XXXXXXXXXXXX',
+  'XXXXXXXXXXXX',
+  'XXXXXXXXXXXX',
+  '.XXXXXXXXXX.',
+  '..XXXXXXXX..',
+  '....XXXX....'
+];
+sprite(halo, sx-2, sy-2, {'X':'#ffd9a0'});
+const sun = [
+  '..XXXX..',
+  '.XXXXXX.',
+  'XXXXXXXX',
+  'XXXXXXXX',
+  'XXXXXXXX',
+  'XXXXXXXX',
+  '.XXXXXX.',
+  '..XXXX..'
+];
+sprite(sun, sx, sy, {'X':'#ffd866'});
+px(sx+2, sy+2, '#fff3b8');
+px(sx+3, sy+2, '#fff3b8');
+px(sx+2, sy+3, '#ffec99');
+px(sx+5, sy+2, '#ffec99');
+
+// === CLOUDS ===
+function cloud(x, y) {
+  const c = '#fff5e8', cs = '#f5d4c0';
+  rc(x+1, y+3, 16, 2, cs);
+  rc(x, y+1, 16, 3, c);
+  rc(x+2, y, 5, 2, c);
+  rc(x+9, y, 5, 2, c);
+  px(x+1, y+1, '#ffffff');
+  px(x+10, y+1, '#ffffff');
+}
+cloud(12, 6);
+cloud(78, 24);
+cloud(115, 4);
+cloud(145, 60);
+
+// === BIRDS ===
+function bird(x, y, c) {
+  px(x, y, c); px(x+1, y-1, c); px(x+2, y, c);
+  px(x+3, y-1, c); px(x+4, y, c);
+}
+bird(45, 38, '#5c3060');
+bird(140, 30, '#5c3060');
+bird(50, 36, '#7d4880');
+
+// === SKY TWINKLES ===
+function twinkle(x, y, c) {
+  px(x, y, c);
+  px(x-1, y, c); px(x+1, y, c);
+  px(x, y-1, c); px(x, y+1, c);
+}
+twinkle(35, 18, '#fff5e8');
+twinkle(95, 14, '#fff5e8');
+twinkle(30, 60, '#ffec99');
+twinkle(180, 75, '#ffec99');
+
+// === HEARTS in sky ===
+function heart(x, y, c, light) {
+  const h = ['.X.X.','XXXXX','XXXXX','.XXX.','..X..'];
+  sprite(h, x, y, {'X': c});
+  if (light) { px(x+1, y+1, light); px(x+3, y+1, light); }
+}
+heart(22, 30, '#ff5d8f', '#ff8eb5');
+heart(168, 50, '#ff5d8f', '#ff8eb5');
+heart(108, 78, '#ffaac4', '#ffd1e3');
+
+// === GRASS ===
+const grassY = 90;
+rc(0, grassY, W, H-grassY, '#5c9e3e');
+rc(0, grassY+10, W, H-grassY-10, '#4a7e30');
+rc(0, grassY+22, W, H-grassY-22, '#3a6526');
+
+for (let i = 0; i < W; i++) {
+  if (i % 2 === 0) px(i, grassY-1, '#7bc750');
+  if (i % 5 === 0) {
+    px(i, grassY-2, '#7bc750');
+    px(i+1, grassY-2, '#7bc750');
+  }
+  if (i % 13 === 0) {
+    rc(i, grassY-3, 1, 3, '#9bd968');
+  }
+}
+
+const blades = [10, 25, 38, 52, 70, 85, 105, 122, 142, 158, 178, 192];
+for (const bx of blades) {
+  px(bx, grassY+3, '#7bc750');
+  px(bx+1, grassY+2, '#7bc750');
+}
+
+// === TREE ===
+function tree(x, y) {
+  const trunk = '#6b4226', trunkD = '#4a2c18', trunkL = '#8b5e36';
+  const leaf = '#3d6e2f', leafL = '#5fa044', leafD = '#274c1c';
+  rc(x+4, y+13, 3, 9, trunk);
+  rc(x+4, y+13, 1, 9, trunkD);
+  rc(x+6, y+13, 1, 9, trunkL);
+  rc(x+1, y+8, 9, 6, leaf);
+  rc(x+2, y+5, 7, 4, leaf);
+  rc(x+3, y+2, 5, 4, leaf);
+  px(x+3, y+9, leafL); px(x+5, y+10, leafL);
+  px(x+4, y+6, leafL); px(x+5, y+3, leafL);
+  px(x+2, y+7, leafL);
+  px(x+8, y+11, leafD); px(x+1, y+12, leafD);
+  px(x+7, y+7, leafD); px(x+8, y+5, leafD);
+  px(x+6, y+9, '#ff5d8f');
+  px(x+3, y+11, '#ff5d8f');
+  px(x+7, y+5, '#ff5d8f');
+}
+tree(168, 70);
+tree(6, 73);
+
+// === FLOWERS ===
+function flower(x, y, petal, center) {
+  px(x+1, y+2, '#3a6526');
+  px(x+1, y+3, '#3a6526');
+  px(x, y, petal); px(x+2, y, petal);
+  px(x, y+1, petal); px(x+2, y+1, petal);
+  px(x+1, y+1, center);
+  px(x, y+2, '#5fa044');
+}
+const flowers = [
+  [32, 96, '#ff9ec7', '#fff7b3'],
+  [44, 97, '#ffec99', '#ff7eb6'],
+  [62, 96, '#c8a4ff', '#fff7b3'],
+  [76, 98, '#ff7eb6', '#fff7b3'],
+  [115, 97, '#ffec99', '#ff7eb6'],
+  [128, 96, '#ff9ec7', '#fff7b3'],
+  [146, 98, '#c8a4ff', '#ffec99'],
+  [188, 96, '#ff9ec7', '#fff7b3'],
+];
+for (const [x,y,p,c] of flowers) flower(x,y,p,c);
+
+// === STRAWBERRIES ===
+function strawberry(x, y) {
+  px(x+1, y, '#3d6e2f');
+  px(x, y+1, '#5fa044'); px(x+1, y+1, '#5fa044'); px(x+2, y+1, '#5fa044');
+  rc(x, y+2, 3, 2, '#e63946');
+  px(x+1, y+4, '#a82a36');
+  px(x, y+2, '#ff5a5a');
+  px(x+1, y+2, '#ffe6a8');
+  px(x+2, y+3, '#ffe6a8');
+}
+strawberry(52, 96);
+strawberry(100, 97);
+strawberry(160, 97);
+
+// === BOBO THE CAT ===
+function bobo(x, y) {
+  const spr = [
+    '.X......X....',
+    'XPX....XPX...',
+    'XOOOOOOOOX...',
+    'XOOOOOOOOX...',
+    'XOEOOOOEOX...',
+    'XOOOPPOOOX.X.',
+    'XOOOOOOOOXX..',
+    '.XOOOOOOXX...',
+    '.XOOOOOOX....',
+    '..XXXXXX.....'
+  ];
+  sprite(spr, x, y, {
+    'X':'#3a2418', 'P':'#ff8aa8', 'O':'#f4a261', 'E':'#1a1a1a'
+  });
+  px(x+3, y+3, '#d4823f'); px(x+4, y+3, '#d4823f');
+  px(x+5, y+3, '#d4823f'); px(x+6, y+3, '#d4823f');
+  px(x+2, y+4, '#fff5e8');
+  px(x+7, y+4, '#fff5e8');
+  px(x+1, y+5, '#ff7eb6');
+  px(x+8, y+5, '#ff7eb6');
+  rc(x+11, y+5, 1, 1, '#3a2418');
+  rc(x+12, y+4, 1, 1, '#3a2418');
+  rc(x+12, y+5, 1, 1, '#f4a261');
+  heart(x+13, y, '#ff5d8f', '#ff8eb5');
+}
+bobo(86, 82);
+
+// === TEXT ===
+function centerText(text, y, color, shadow, scale) {
+  const w = text.length * 6 * scale;
+  const x = Math.floor((W - w) / 2);
+  drawText(text, x+1, y+2, shadow, scale);
+  drawText(text, x+1, y+1, shadow, scale);
+  drawText(text, x, y, color, scale);
+}
+
+centerText('HAPPY SATURDAY,', 36, '#fff5e8', '#5c2238', 2);
+centerText('BOBO LOVES YOU', 56, '#fff5e8', '#5c2238', 2);
+
+heart(8, 60, '#ff5d8f', '#ff8eb5');
+heart(186, 60, '#ff5d8f', '#ff8eb5');
+
+const sparkles = [
+  [10, 36, '#fff5e8'],
+  [188, 38, '#fff5e8'],
+  [16, 70, '#ffec99'],
+  [180, 72, '#ffec99'],
+  [98, 30, '#fff5e8']
+];
+for (const [x,y,c] of sparkles) twinkle(x,y,c);
+
+// === RENDER ===
+svg.innerHTML = buf;
+svg.setAttribute('width', W * PIXEL);
+svg.setAttribute('height', H * PIXEL);
+
+// === DOWNLOAD ===
+function downloadPNG() {
+  const data = new XMLSerializer().serializeToString(svg);
+  const canvas = document.createElement('canvas');
+  const scaleUp = 2;
+  canvas.width = W * PIXEL * scaleUp;
+  canvas.height = H * PIXEL * scaleUp;
+  const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  const img = new Image();
+  const blob = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    URL.revokeObjectURL(url);
+    canvas.toBlob(b => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(b);
+      a.download = 'happy-saturday-bobo.png';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+      }, 100);
+    });
+  };
+  img.src = url;
+}
+window.downloadPNG = downloadPNG;
+</script>
+</body>
+</html>
