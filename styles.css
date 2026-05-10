@@ -487,9 +487,21 @@ section { position: relative; }
 .exp-row[data-open="true"] .toggle { display: inline; color: var(--accent); }
 
 @media (max-width: 800px) {
-  .exp-row { grid-template-columns: 1fr; gap: 6px; padding: 22px 4px; }
+  .exp-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 22px 4px;
+  }
+  /* Force every direct child to span the single column. Without this,
+     `.toggle`'s desktop `grid-column: 1 / 5` (and `.bullets`'s `2 / 4`)
+     reference column lines that don't exist in the 1-track grid, so CSS
+     Grid spawns 3 implicit `auto` tracks to fill them. Auto-placement
+     then flows `.yr`, `.role`, `.summary`, and `.meta-r` across those
+     4 narrow tracks — recreating the desktop layout on a phone and
+     wrapping every word to its own line. */
+  .exp-row > * { grid-column: 1 / -1; }
   .exp-row .meta-r { text-align: left; }
-  .exp-row .bullets { grid-column: 1 / 2; }
+  .exp-row .toggle { justify-self: end; }
 }
 
 /* =========================================================
