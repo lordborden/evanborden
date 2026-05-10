@@ -492,14 +492,15 @@ section { position: relative; }
     gap: 10px;
     padding: 22px 4px;
   }
-  /* Force every direct child to span the single column. Without this,
-     `.toggle`'s desktop `grid-column: 1 / 5` (and `.bullets`'s `2 / 4`)
-     reference column lines that don't exist in the 1-track grid, so CSS
-     Grid spawns 3 implicit `auto` tracks to fill them. Auto-placement
-     then flows `.yr`, `.role`, `.summary`, and `.meta-r` across those
-     4 narrow tracks — recreating the desktop layout on a phone and
-     wrapping every word to its own line. */
-  .exp-row > * { grid-column: 1 / -1; }
+  /* Override desktop's explicit `grid-column` on `.bullets` (2 / 4) and
+     `.toggle` (1 / 5). Both reference column lines that don't exist in
+     the 1-track mobile grid, so CSS Grid spawns implicit `auto` tracks
+     to fill them — which would otherwise push bullets into the right
+     half of the viewport. These descendant selectors match the desktop
+     rules' specificity (0,2,0) so the mobile rule wins on source order;
+     a `.exp-row > *` selector (0,1,0) would lose. */
+  .exp-row .bullets,
+  .exp-row .toggle { grid-column: 1 / -1; }
   .exp-row .meta-r { text-align: left; }
   .exp-row .toggle { justify-self: end; }
 }
