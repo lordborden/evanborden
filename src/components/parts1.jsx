@@ -1,8 +1,7 @@
-/* global React */
-const { useState, useEffect, useMemo } = React;
+import React, { useState, useEffect } from "react";
+import { SITE_DATA as D } from "../data.js";
 
-// ---------- StatusBar ----------
-function StatusBar() {
+export function StatusBar() {
   const [time, setTime] = useState("");
   useEffect(() => {
     const tick = () => {
@@ -39,9 +38,7 @@ function StatusBar() {
   );
 }
 
-// ---------- Hero ----------
-function Hero() {
-  const D = window.SITE_DATA;
+export function Hero() {
   const tickerItems = [
     "WordPress · Custom themes & plugins",
     "AEM · OSGi · Sling · HTL",
@@ -77,7 +74,7 @@ function Hero() {
           </div>
           <div>
             <div className="portrait">
-              <img src="assets/profile.jpeg" alt="Evan Borden" />
+              <img src="/assets/profile.jpeg" alt="Evan Borden" />
               <div className="corners"><span></span></div>
               <div className="badge">Available · 2026</div>
             </div>
@@ -109,9 +106,7 @@ function Hero() {
   );
 }
 
-// ---------- About / Stats ----------
-function About() {
-  const D = window.SITE_DATA;
+export function About() {
   return (
     <section className="about" id="about">
       <div className="wrap">
@@ -125,9 +120,7 @@ function About() {
             About
           </div>
           <div>
-            <p>
-              Eighteen years writing code, six leading the people who write it. I came up through <span className="accent">WordPress themes</span> and <span className="accent">AEM modules</span>, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.
-            </p>
+            <p>{D.manifesto}</p>
           </div>
         </div>
         <div className="stats">
@@ -153,9 +146,7 @@ function About() {
   );
 }
 
-// ---------- Experience ----------
-function Experience() {
-  const D = window.SITE_DATA;
+export function Experience() {
   const [open, setOpen] = useState(0);
   return (
     <section className="experience" id="work">
@@ -206,5 +197,3 @@ function Experience() {
     </section>
   );
 }
-
-window.SiteParts = { StatusBar, Hero, About, Experience };

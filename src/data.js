@@ -1,5 +1,5 @@
 // Evan Borden — site content & skills data
-window.SITE_DATA = {
+export const SITE_DATA = {
   name: "Evan Borden",
   role: "Manager, Engineering",
   company: "Razorfish",

@@ -33,3 +33,6 @@ Desktop.ini
 *.bak
 *.orig
 *.tmp
+
+# Node / Vite
+node_modules/

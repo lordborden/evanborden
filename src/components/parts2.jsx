@@ -1,19 +1,17 @@
-/* global React */
-const { useState: useStateP2, useMemo: useMemoP2 } = React;
+import { useState, useMemo } from "react";
+import { SITE_DATA as D } from "../data.js";
 
-// ---------- Skills ----------
-function Skills() {
-  const D = window.SITE_DATA;
-  const cats = useMemoP2(() => {
+export function Skills() {
+  const cats = useMemo(() => {
     const m = new Map();
     for (const s of D.skills) m.set(s.cat, (m.get(s.cat) || 0) + 1);
     return [["All", D.skills.length], ...m.entries()];
   }, []);
-  const [active, setActive] = useStateP2("All");
-  const [openKey, setOpenKey] = useStateP2(null);
-  const [sort, setSort] = useStateP2("rating"); // rating | year | name
+  const [active, setActive] = useState("All");
+  const [openKey, setOpenKey] = useState(null);
+  const [sort, setSort] = useState("rating");
 
-  const visible = useMemoP2(() => {
+  const visible = useMemo(() => {
     let v = active === "All" ? D.skills.slice() : D.skills.filter(s => s.cat === active);
     if (sort === "rating") v.sort((a, b) => b.rating - a.rating || a.skill.localeCompare(b.skill));
     if (sort === "year")   v.sort((a, b) => b.year - a.year || b.rating - a.rating);
@@ -129,9 +127,7 @@ function Skills() {
   );
 }
 
-// ---------- Projects ----------
-function Projects() {
-  const D = window.SITE_DATA;
+export function Projects() {
   return (
     <section className="projects" id="projects">
       <div className="wrap">
@@ -161,9 +157,7 @@ function Projects() {
   );
 }
 
-// ---------- Contact ----------
-function Contact() {
-  const D = window.SITE_DATA;
+export function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="wrap">
@@ -190,5 +184,3 @@ function Contact() {
     </section>
   );
 }
-
-window.SiteParts2 = { Skills, Projects, Contact };
