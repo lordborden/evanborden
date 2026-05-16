@@ -214,7 +214,13 @@ export function V2Contact() {
           <div className="line">
             <span style={{ color: "var(--v2-cyan)" }}>education</span>
             <span className="sep">=</span>
-            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>UNC Charlotte · B.S. Computer Science</span>
+            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>
+              {SITE_DATA.education.map((e, i) => (
+                <span key={i} style={{ display: "block" }}>
+                  {e.school} · {e.degree} <span style={{ color: "var(--v2-ink-faint)" }}>({e.years})</span>
+                </span>
+              ))}
+            </span>
           </div>
           <div className="line" style={{ marginTop: 12 }}>
             <span style={{ color: "var(--v2-mint)" }}>$</span>
