@@ -1,184 +1,238 @@
-import { useState, useMemo } from "react";
-import { SITE_DATA as D } from "../data.js";
+import React, { useState, useMemo } from "react";
+import { SITE_DATA } from "../data.js";
+import { PaneHead } from "./shell.jsx";
 
-export function Skills() {
+// ============================================================
+// SKILLS — TSV data grid w/ grep + sort + category chips
+// ============================================================
+export function V2Skills() {
   const cats = useMemo(() => {
     const m = new Map();
-    for (const s of D.skills) m.set(s.cat, (m.get(s.cat) || 0) + 1);
-    return [["All", D.skills.length], ...m.entries()];
+    for (const s of SITE_DATA.skills) m.set(s.cat, (m.get(s.cat) || 0) + 1);
+    return [["All", SITE_DATA.skills.length], ...Array.from(m.entries())];
   }, []);
   const [active, setActive] = useState("All");
-  const [openKey, setOpenKey] = useState(null);
-  const [sort, setSort] = useState("rating");
+  const [open, setOpen] = useState(null);
+  const [sort, setSort] = useState({ key: "rating", dir: "desc" });
+  const [q, setQ] = useState("");
 
-  const visible = useMemo(() => {
-    let v = active === "All" ? D.skills.slice() : D.skills.filter(s => s.cat === active);
-    if (sort === "rating") v.sort((a, b) => b.rating - a.rating || a.skill.localeCompare(b.skill));
-    if (sort === "year")   v.sort((a, b) => b.year - a.year || b.rating - a.rating);
-    if (sort === "name")   v.sort((a, b) => a.skill.localeCompare(b.skill));
+  const view = useMemo(() => {
+    let v = active === "All" ? SITE_DATA.skills.slice() : SITE_DATA.skills.filter(s => s.cat === active);
+    if (q) {
+      const needle = q.toLowerCase();
+      v = v.filter(s =>
+        s.skill.toLowerCase().includes(needle) ||
+        s.cat.toLowerCase().includes(needle) ||
+        s.notes.toLowerCase().includes(needle)
+      );
+    }
+    v.sort((a, b) => {
+      const mul = sort.dir === "asc" ? 1 : -1;
+      if (sort.key === "name") return a.skill.localeCompare(b.skill) * mul;
+      if (sort.key === "cat")  return a.cat.localeCompare(b.cat) * mul;
+      if (sort.key === "year") return (a.year - b.year) * mul;
+      return (a.rating - b.rating) * mul || a.skill.localeCompare(b.skill);
+    });
     return v;
-  }, [active, sort]);
+  }, [active, q, sort]);
 
-  const RatingDots = ({ n }) => (
-    <span className="dots">
-      {[1,2,3,4].map(i => <i key={i} className={i <= n ? "on" : ""} />)}
-    </span>
+  const Dots = ({ n }) => (
+    <span className="v2-dots">{[1,2,3,4].map(i => <i key={i} className={i <= n ? "on" : ""} />)}</span>
   );
-
   const levelLabel = ["", "Beginner", "Developing", "Proficient", "Expert"];
 
-  return (
-    <section className="skills" id="skills">
-      <div className="wrap">
-        <div className="section-label">
-          <span className="num">004</span>
-          <span>The Toolbelt</span>
-          <span className="line"></span>
-        </div>
+  const toggleSort = (k) => {
+    setSort(s => s.key === k
+      ? { key: k, dir: s.dir === "asc" ? "desc" : "asc" }
+      : { key: k, dir: (k === "name" || k === "cat") ? "asc" : "desc" });
+  };
+  const Arr = ({ k }) => sort.key === k ? <span className="arr">{sort.dir === "asc" ? "↑" : "↓"}</span> : null;
 
-        <div className="skills-head">
-          <h2>
-            Self-rated, <span className="ital">honestly</span>.
-          </h2>
+  return (
+    <section id="pane-skills">
+      <PaneHead path="~/career" file="skills.tsv" lang={`${view.length} / ${SITE_DATA.skills.length} rows`} />
+      <div className="v2-pane">
+        <div className="v2-skills-head">
+          <h2 className="v2-section-title">Self-rated, <span className="ital">honestly.</span></h2>
           <div className="legend">
             {[1,2,3,4].map(n => (
-              <span key={n} className="lvl">
-                <RatingDots n={n} />
-                <span>{levelLabel[n]}</span>
-              </span>
+              <span key={n} className="lvl"><Dots n={n} /><span>{levelLabel[n]}</span></span>
             ))}
           </div>
         </div>
 
-        <div className="chips" role="tablist" aria-label="Filter by category">
+        <div className="v2-grep">
+          <span className="lead">$ grep</span>
+          <input
+            type="text"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="filter skills, categories, evidence…"
+            spellCheck="false"
+          />
+          <span className="hint"><kbd>/</kbd> to focus</span>
+        </div>
+
+        <div className="v2-chips">
           {cats.map(([c, ct]) => (
             <button
               key={c}
-              className="chip"
-              role="tab"
+              className="v2-chip"
               aria-pressed={active === c}
-              onClick={() => { setActive(c); setOpenKey(null); }}
+              onClick={() => { setActive(c); setOpen(null); }}
             >
               {c} <span className="ct">{ct}</span>
             </button>
           ))}
         </div>
 
-        <div className="skills-foot" style={{ marginTop: 0, marginBottom: 14 }}>
-          <span>Showing {visible.length} {visible.length === 1 ? "skill" : "skills"}{active !== "All" ? ` in ${active}` : ""}</span>
-          <span style={{ display: "inline-flex", gap: 14 }}>
-            <span style={{ color: "var(--ink-faint)" }}>Sort:</span>
-            {["rating","year","name"].map(s => (
-              <button
-                key={s}
-                onClick={() => setSort(s)}
-                style={{
-                  fontFamily: "var(--mono)",
-                  fontSize: 11,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: sort === s ? "var(--accent)" : "var(--ink-dim)",
-                  cursor: "pointer",
-                }}
-              >
-                {s === "rating" ? "Proficiency" : s === "year" ? "Last Used" : "A → Z"}
-              </button>
-            ))}
-          </span>
-        </div>
-
-        <div className="skill-list">
-          {visible.map((s) => {
+        <div className="v2-table">
+          <div className="thead">
+            <span className="right">#</span>
+            <button className={sort.key === "name" ? "active" : ""} onClick={() => toggleSort("name")}>skill <Arr k="name" /></button>
+            <button className={"col-cat " + (sort.key === "cat" ? "active" : "")} onClick={() => toggleSort("cat")}>category <Arr k="cat" /></button>
+            <button className={"right " + (sort.key === "rating" ? "active" : "")} onClick={() => toggleSort("rating")} style={{ justifyContent: "flex-end" }}>level <Arr k="rating" /></button>
+            <button className={"col-yr right " + (sort.key === "year" ? "active" : "")} onClick={() => toggleSort("year")} style={{ justifyContent: "flex-end" }}>year <Arr k="year" /></button>
+            <span className="center"></span>
+          </div>
+          {view.map((s, i) => {
             const key = `${s.cat}|${s.skill}`;
-            const isOpen = openKey === key;
+            const isOpen = open === key;
             return (
               <div
                 key={key}
-                className="skill-row"
+                className="v2-trow"
                 data-open={isOpen ? "true" : "false"}
-                onClick={() => setOpenKey(isOpen ? null : key)}
+                onClick={() => setOpen(isOpen ? null : key)}
               >
-                <div className="name">
-                  {s.skill}
-                  <span className="cat">{s.cat}</span>
-                </div>
-                <div className="lvl"><RatingDots n={s.rating} /></div>
-                <div className="yr">'{String(s.year).slice(2)}</div>
-                <div className="caret">›</div>
+                <span className="idx">{String(i + 1).padStart(2, "0")}</span>
+                <span className="skill">{s.skill}</span>
+                <span className="cat">{s.cat}</span>
+                <span className="lvl"><Dots n={s.rating} /></span>
+                <span className="yr">'{String(s.year).slice(2)}</span>
+                <span className="caret">›</span>
                 {isOpen && (
-                  <div className="notes">
-                    <div className="mono upper" style={{ fontSize: 10.5, color: "var(--ink-faint)", marginBottom: 8, letterSpacing: "0.16em" }}>
-                      {levelLabel[s.rating]} · last used {s.year}
-                    </div>
+                  <div className="v2-trow-notes">
+                    <div className="meta">{levelLabel[s.rating]} · last used {s.year} · {s.cat}</div>
                     {s.notes}
                   </div>
                 )}
               </div>
             );
           })}
-        </div>
-
-        <div className="skills-foot">
-          <span>Source: internal Razorfish skill tracker · self-assessed</span>
-          <span>Tap any row for evidence ↗</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function Projects() {
-  return (
-    <section className="projects" id="projects">
-      <div className="wrap">
-        <div className="section-label">
-          <span className="num">005</span>
-          <span>Selected Work & Tinkering</span>
-          <span className="line"></span>
-        </div>
-        <div className="proj-head">
-          <h2>Things I've <span className="ital">built</span>.</h2>
-          <div className="note">Client work + nights-and-weekends. The hobby projects are how the day job stays sharp.</div>
-        </div>
-        <div className="proj-grid">
-          {D.projects.map((p, i) => (
-            <article className="proj-card" key={i}>
-              <div className="kind">{p.kind}</div>
-              <h3>{p.title}</h3>
-              <p>{p.blurb}</p>
-              <div className="stack">
-                {p.stack.map((t, k) => <span key={k}>{t}</span>)}
-              </div>
-            </article>
-          ))}
+          <div className="v2-tfoot">
+            <span>{view.length} of {SITE_DATA.skills.length} rows · self-rated from internal tracker</span>
+            <span>sorted by {sort.key} {sort.dir}</span>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-export function Contact() {
+// ============================================================
+// PROJECTS — repo cards
+// ============================================================
+export function V2Projects() {
+  const langs = ["php", "cs", "php", "java"];
   return (
-    <section className="contact" id="contact">
-      <div className="wrap">
-        <div className="section-label">
-          <span className="num">006</span>
-          <span>Get In Touch</span>
-          <span className="line"></span>
+    <section id="pane-projects">
+      <PaneHead path="~/projects" file="README.md" lang="markdown" />
+      <div className="v2-pane">
+        <h2 className="v2-section-title">Things I've <span className="ital">built.</span></h2>
+        <p className="v2-section-sub"># client work + nights-and-weekends. the hobby projects are how the day job stays sharp.</p>
+        <div className="v2-repos">
+          {SITE_DATA.projects.map((p, i) => {
+            const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+            const isPublic = !!p.kind.match(/Personal/);
+            return (
+              <article key={i} className="v2-repo">
+                <div className="top">
+                  <span>{p.kind}</span>
+                  <span style={{ marginLeft: "auto" }} className={"priv " + (isPublic ? "public" : "")}>{isPublic ? "Public" : "Client"}</span>
+                </div>
+                <h3>
+                  <span className="owner">evanborden</span>
+                  <span className="slash">/</span>
+                  <span className="name">{slug}</span>
+                </h3>
+                <p>{p.blurb}</p>
+                <div className="topics">
+                  {p.stack.map((t, k) => <span key={k}>{t.toLowerCase().replace(/\s+/g, "-")}</span>)}
+                </div>
+                <div className="foot">
+                  <span className={"lang " + langs[i]}><i></i> {p.stack[0]}</span>
+                  <span>·</span>
+                  <span>updated {2026 - (i === 1 ? 0 : i % 2)}</span>
+                </div>
+              </article>
+            );
+          })}
         </div>
-        <h2 className="big">
-          Let's <span className="ital">talk</span>.<br/>
-          <a className="email" href={`mailto:${D.email}`}>{D.email}</a>
-        </h2>
-        <dl className="info">
-          <div><dt>Phone</dt><dd>{D.phone}</dd></div>
-          <div><dt>LinkedIn</dt><dd><a href={D.linkedin} target="_blank" rel="noopener">/in/evan-borden</a></dd></div>
-          <div><dt>Based</dt><dd>{D.location}</dd></div>
-          <div><dt>Education</dt><dd>UNC Charlotte · B.S. CS</dd></div>
-        </dl>
-        <div className="coda">
-          <span>© 2026 Evan Borden · Crafted with HTML & opinions</span>
-          <span className="blink">v1.0 · 2026.05</span>
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// CONTACT — shell prompt
+// ============================================================
+export function V2Contact() {
+  return (
+    <section id="pane-contact">
+      <PaneHead path="~" file="contact.sh" lang="shell" />
+      <div className="v2-pane">
+        <h2 className="v2-section-title">Let's <span className="ital">talk.</span></h2>
+        <p className="v2-section-sub"># the fastest way to reach me is the first one.</p>
+
+        <div className="v2-shell-block">
+          <div className="line">
+            <span style={{ color: "var(--v2-mint)" }}>$</span>
+            <span style={{ color: "var(--v2-ink)" }}>cat ./contact.sh</span>
+          </div>
+          <div className="line">
+            <span style={{ color: "var(--v2-cyan)" }}>email</span>
+            <span className="sep">=</span>
+            <span className="out"><a href={`mailto:${SITE_DATA.email}`}>{SITE_DATA.email}</a></span>
+          </div>
+          <div className="line">
+            <span style={{ color: "var(--v2-cyan)" }}>phone</span>
+            <span className="sep">=</span>
+            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>{SITE_DATA.phone}</span>
+          </div>
+          <div className="line">
+            <span style={{ color: "var(--v2-cyan)" }}>linkedin</span>
+            <span className="sep">=</span>
+            <span className="out"><a href={SITE_DATA.linkedin} target="_blank" rel="noopener">linkedin.com/in/evan-borden</a></span>
+          </div>
+          <div className="line">
+            <span style={{ color: "var(--v2-cyan)" }}>location</span>
+            <span className="sep">=</span>
+            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>Charlotte, NC · America/New_York</span>
+          </div>
+          <div className="line">
+            <span style={{ color: "var(--v2-cyan)" }}>education</span>
+            <span className="sep">=</span>
+            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>UNC Charlotte · B.S. Computer Science</span>
+          </div>
+          <div className="line" style={{ marginTop: 12 }}>
+            <span style={{ color: "var(--v2-mint)" }}>$</span>
+            <span style={{ color: "var(--v2-ink)" }}>./contact.sh --status</span>
+          </div>
+          <div className="line">
+            <span className="out" style={{ color: "var(--v2-mint)" }}>● open to conversations · 2026</span>
+          </div>
+          <div className="line">
+            <span style={{ color: "var(--v2-mint)" }}>$</span>
+            <span className="caret"></span>
+          </div>
+        </div>
+
+        <div style={{ marginTop: 60, color: "var(--v2-ink-faint)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+          <span>© 2026 Evan Borden · built with HTML & opinions</span>
+          <span>
+            v2.0 · personal cockpit · <a href="/v1/" style={{ textDecoration: "underline", textDecorationColor: "var(--v2-ink-faint)" }}>see v1 ↗</a>
+          </span>
         </div>
       </div>
     </section>
