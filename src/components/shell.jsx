@@ -15,26 +15,63 @@ export const FILES = [
 ];
 
 export function V2Shell({ active, setActive }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const current = FILES.find(f => f.id === active) || FILES[0];
+
+  // close drawer on resize back to desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 640) setMenuOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const handlePick = (id) => {
+    setActive(id);
+    setMenuOpen(false);
+    document.getElementById(`pane-${id}`)?.scrollIntoView({ block: "start" });
+  };
+
   return (
     <header className="v2-tabs">
       <div className="traffic" aria-hidden="true">
         <i></i><i></i><i></i>
       </div>
-      {FILES.map(f => (
-        <button
-          key={f.id}
-          className="v2-tab"
-          aria-current={active === f.id ? "true" : "false"}
-          onClick={() => {
-            setActive(f.id);
-            document.getElementById(`pane-${f.id}`)?.scrollIntoView({ block: "start" });
-          }}
-        >
-          <span className="ico">{f.ico}</span>
-          <span>{f.name}.{f.ext}</span>
-          <span className="x">×</span>
-        </button>
-      ))}
+
+      {/* desktop tabs */}
+      <div className="v2-tabs-row">
+        {FILES.map(f => (
+          <button
+            key={f.id}
+            className="v2-tab"
+            aria-current={active === f.id ? "true" : "false"}
+            onClick={() => handlePick(f.id)}
+          >
+            <span className="ico">{f.ico}</span>
+            <span>{f.name}.{f.ext}</span>
+            <span className="x">×</span>
+          </button>
+        ))}
+      </div>
+
+      {/* mobile: current pane label + menu button */}
+      <button
+        className="v2-tab v2-tab-current"
+        aria-current="true"
+        aria-label="Current pane"
+        onClick={() => setMenuOpen(true)}
+      >
+        <span className="ico">{current.ico}</span>
+        <span>{current.name}.{current.ext}</span>
+      </button>
+      <button
+        className="v2-menu-btn"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen ? "true" : "false"}
+        onClick={() => setMenuOpen(o => !o)}
+      >
+        <span></span><span></span><span></span>
+      </button>
+
       <div className="spacer"></div>
       <div className="right">
         <span className="live">connected</span>
@@ -43,6 +80,46 @@ export function V2Shell({ active, setActive }) {
         <span className="dot">·</span>
         <span>v2.0</span>
       </div>
+
+      {/* mobile drawer */}
+      {menuOpen && (
+        <div className="v2-drawer-scrim" onClick={() => setMenuOpen(false)}>
+          <nav className="v2-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="v2-drawer-hdr">
+              <span>~/evanborden</span>
+              <button
+                className="v2-drawer-x"
+                aria-label="Close menu"
+                onClick={() => setMenuOpen(false)}
+              >×</button>
+            </div>
+            {["Identity", "Career", "Reach"].map(g => (
+              <div className="v2-drawer-group" key={g}>
+                <div className="v2-drawer-label">{g.toLowerCase()}/</div>
+                {FILES.filter(f => f.group === g).map(f => (
+                  <button
+                    key={f.id}
+                    className="v2-drawer-item"
+                    aria-current={active === f.id ? "true" : "false"}
+                    onClick={() => handlePick(f.id)}
+                  >
+                    <span className="ico">{f.ico}</span>
+                    <span>{f.name}.{f.ext}</span>
+                  </button>
+                ))}
+              </div>
+            ))}
+            <div className="v2-drawer-group">
+              <div className="v2-drawer-label">archive/</div>
+              <a className="v2-drawer-item" href="/v1/">
+                <span className="ico">▤</span>
+                <span>v1-editorial.html</span>
+                <span style={{ marginLeft: "auto", color: "var(--v2-ink-faint)" }}>↗</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
