@@ -79,10 +79,7 @@ export function V2Readme() {
           <div className="body">
             <h1><span className="hash">#</span>About</h1>
             <p>
-              <strong>Eighteen years writing code, seven leading the people who write it.</strong> I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring <em>Claude</em> up to a webhook so it can publish to my own CMS.
-            </p>
-            <p>
-              The job is to <em>make the team faster</em>, the codebase calmer, and the client confident — in roughly that order. I move comfortably from frontend to backend to infrastructure, debug the gnarly stuff, and translate between technical and business when the room needs it.
+              Eighteen years writing code, seven leading the people who write it. I came up through <em>WordPress themes</em> and <em>AEM modules</em>, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring <em>Claude</em> up to a webhook so it can publish to my own CMS. The job is to <strong>make the team faster, the codebase calmer, and the client confident</strong> — in roughly that order.
             </p>
           </div>
         </div>

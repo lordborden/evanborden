@@ -9,7 +9,7 @@ export const SITE_DATA = {
   phone: "704.401.4864",
   linkedin: "https://www.linkedin.com/in/evan-borden/",
   tagline: "Hands-on engineering leader. Ships software, mentors people, ports DOOM into Unity for fun.",
-  manifesto: "Eighteen years writing code, six leading the people who write it. I move comfortably from frontend to backend to infrastructure — designing systems, debugging the gnarly stuff, and shipping the work end to end. I mentor engineers, translate between technical and business, and I'm still curious enough to spend my weekends on a personal Linux box wiring up new tools just to see how they work. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
+  manifesto: "Eighteen years writing code, six leading the people who write it. I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
 
   experience: [
     {
@@ -77,6 +77,7 @@ export const SITE_DATA = {
     { cat: "CMS / DAM", skill: "Adobe Experience Manager (AEM)", rating: 3, year: 2023, notes: "UC Health — multi-module Maven project. OSGi services, Sling models and servlets, HTL templating, JCR content packaging, Touch UI dialogs." },
     { cat: "CMS / DAM", skill: "Gutenberg / Block Editor", rating: 3, year: 2026, notes: "Disney Rewards — block.json, @wordpress/scripts, Interactivity API." },
     { cat: "CMS / DAM", skill: "ACF Pro", rating: 4, year: 2025, notes: "Disney Rewards — field groups, options pages, ACF blocks." },
+    { cat: "Frontend", skill: "JavaScript", rating: 4, year: 2026, notes: "Used continuously across every client engagement and personal project — modern ES2022+, async/await, modules, DOM/Fetch APIs. Also the lingua franca of my hobby work: Linux server tooling, MCP integration, build scripts, and Unity-adjacent prototyping." },
     { cat: "Frontend", skill: "React", rating: 3, year: 2026, notes: "Disney Rewards — Gutenberg block editor; hobby projects and experiments." },
     { cat: "Frontend", skill: "Vue.js", rating: 3, year: 2023, notes: "UC Health — Vue 2 in AEM clientlibs; Vue 3 experimentation across projects." },
     { cat: "Frontend", skill: "Node.js", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — front-end build tooling runtime." },
