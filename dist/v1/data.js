@@ -77,6 +77,7 @@ window.SITE_DATA = {
     { cat: "CMS / DAM", skill: "Adobe Experience Manager (AEM)", rating: 3, year: 2023, notes: "UC Health — multi-module Maven project. OSGi services, Sling models and servlets, HTL templating, JCR content packaging, Touch UI dialogs." },
     { cat: "CMS / DAM", skill: "Gutenberg / Block Editor", rating: 3, year: 2026, notes: "Disney Rewards — block.json, @wordpress/scripts, Interactivity API." },
     { cat: "CMS / DAM", skill: "ACF Pro", rating: 4, year: 2025, notes: "Disney Rewards — field groups, options pages, ACF blocks." },
+    { cat: "Frontend", skill: "JavaScript", rating: 4, year: 2026, notes: "Used continuously across every client engagement and personal project — modern ES2022+, async/await, modules, DOM/Fetch APIs. Also the lingua franca of my hobby work: Linux server tooling, MCP integration, build scripts, and Unity-adjacent prototyping." },
     { cat: "Frontend", skill: "React", rating: 3, year: 2026, notes: "Disney Rewards — Gutenberg block editor; hobby projects and experiments." },
     { cat: "Frontend", skill: "Vue.js", rating: 3, year: 2023, notes: "UC Health — Vue 2 in AEM clientlibs; Vue 3 experimentation across projects." },
     { cat: "Frontend", skill: "Node.js", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — front-end build tooling runtime." },
