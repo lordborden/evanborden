@@ -61,7 +61,7 @@ html, body { max-width: 100vw; overflow-x: clip; }
    ========================================================= */
 .v2-shell {
   display: grid;
-  grid-template-rows: 44px 1fr 26px;
+  grid-template-rows: 52px 1fr 26px;
   min-height: 100vh;
 }
 
@@ -79,7 +79,7 @@ html, body { max-width: 100vw; overflow-x: clip; }
 .v2-tab-current, .v2-menu-btn { display: none; }
 .v2-tabs .traffic {
   display: flex; gap: 7px; align-items: center;
-  padding: 0 16px;
+  padding: 0 20px;
   border-right: 1px solid var(--v2-hair);
   flex-shrink: 0;
 }
@@ -93,8 +93,8 @@ html, body { max-width: 100vw; overflow-x: clip; }
 .v2-tabs .traffic i:nth-child(3) { background: var(--v2-mint); }
 
 .v2-tab {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 0 22px;
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 0 32px;
   color: var(--v2-ink-dim);
   border-right: 1px solid var(--v2-hair);
   position: relative;
@@ -117,7 +117,7 @@ html, body { max-width: 100vw; overflow-x: clip; }
 .v2-tabs .spacer { flex: 1; min-width: 0; }
 .v2-tabs .right {
   display: flex; align-items: center; gap: 14px;
-  padding: 0 16px;
+  padding: 0 20px;
   color: var(--v2-ink-dim);
   border-left: 1px solid var(--v2-hair);
   font-size: 11.5px;
@@ -153,8 +153,8 @@ html, body { max-width: 100vw; overflow-x: clip; }
   font-size: 12px;
   padding: 16px 0 24px;
   position: sticky;
-  top: 44px;
-  height: calc(100vh - 44px - 26px);
+  top: 52px;
+  height: calc(100vh - 52px - 26px);
   overflow: auto;
 }
 .v2-side .hdr {
@@ -592,7 +592,7 @@ html, body { max-width: 100vw; overflow-x: clip; }
   .v2-tab-current {
     display: inline-flex;
     align-items: center; gap: 8px;
-    padding: 0 14px;
+    padding: 0 16px;
     flex: 1; min-width: 0;
     color: var(--v2-ink);
     background: var(--v2-bg);
@@ -613,7 +613,7 @@ html, body { max-width: 100vw; overflow-x: clip; }
 }
 
 @media (max-width: 640px) {
-  .v2-tabs .traffic { padding: 0 12px; gap: 6px; }
+  .v2-tabs .traffic { padding: 0 14px; gap: 6px; }
   .v2-tabs .traffic i { width: 10px; height: 10px; }
   .v2-status { padding: 0 12px; gap: 10px; font-size: 10.5px; overflow: hidden; }
   .v2-pane { padding: 24px 16px 60px; }
