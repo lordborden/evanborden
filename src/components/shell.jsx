@@ -20,7 +20,7 @@ export function V2Shell({ active, setActive }) {
 
   // close drawer on resize back to desktop
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth > 640) setMenuOpen(false); };
+    const onResize = () => { if (window.innerWidth > 900) setMenuOpen(false); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
