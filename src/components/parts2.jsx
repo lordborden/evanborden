@@ -102,6 +102,7 @@ export function V2Skills() {
               <div
                 key={key}
                 className="v2-trow"
+                style={{ '--i': i }}
                 data-open={isOpen ? "true" : "false"}
                 onClick={() => setOpen(isOpen ? null : key)}
               >
@@ -146,7 +147,7 @@ export function V2Projects() {
             const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
             const isPublic = !!p.kind.match(/Personal/);
             return (
-              <article key={i} className="v2-repo">
+              <article key={i} className="v2-repo" style={{ '--i': i }}>
                 <div className="top">
                   <span>{p.kind}</span>
                   <span style={{ marginLeft: "auto" }} className={"priv " + (isPublic ? "public" : "")}>{isPublic ? "Public" : "Client"}</span>

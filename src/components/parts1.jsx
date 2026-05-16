@@ -117,6 +117,7 @@ export function V2Experience() {
             <div
               key={i}
               className="v2-jrow"
+              style={{ '--i': i }}
               data-open={open === i ? "true" : "false"}
             >
               <div className="ln">{String(i + 1).padStart(2, "0")}</div>
