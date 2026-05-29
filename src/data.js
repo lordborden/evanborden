@@ -8,7 +8,7 @@ export const SITE_DATA = {
   email: "evanpatrickborden@outlook.com",
   phone: "704.401.4864",
   linkedin: "https://www.linkedin.com/in/evan-borden/",
-  tagline: "Hands-on engineering leader. Ships software, mentors people, ports DOOM into Unity for fun.",
+  tagline: "Hands-on engineering leader. Ships software, mentors people, and builds boomer shooters in Unity on the side.",
   manifesto: "Eighteen years writing code, six leading the people who write it. I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
 
   experience: [
@@ -78,7 +78,6 @@ export const SITE_DATA = {
     { cat: "CMS / DAM", skill: "Gutenberg / Block Editor", rating: 3, year: 2026, notes: "Disney Rewards — block.json, @wordpress/scripts, Interactivity API." },
     { cat: "CMS / DAM", skill: "ACF Pro", rating: 4, year: 2025, notes: "Disney Rewards — field groups, options pages, ACF blocks." },
     { cat: "Frontend", skill: "JavaScript", rating: 4, year: 2026, notes: "Used continuously across every client engagement and personal project — modern ES2022+, async/await, modules, DOM/Fetch APIs. Also the lingua franca of my hobby work: Linux server tooling, MCP integration, build scripts, and Unity-adjacent prototyping." },
-    { cat: "Frontend", skill: "TypeScript", rating: 3, year: 2026, notes: "Razorfish front-end work alongside JavaScript — typed component contracts, build tooling, gradual migration patterns in WordPress + AEM front-end layers." },
     { cat: "Frontend", skill: "React", rating: 3, year: 2026, notes: "Disney Rewards — Gutenberg block editor; hobby projects and experiments." },
     { cat: "Frontend", skill: "Vue.js", rating: 3, year: 2023, notes: "UC Health — Vue 2 in AEM clientlibs; Vue 3 experimentation across projects." },
     { cat: "Frontend", skill: "Node.js", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — front-end build tooling runtime." },
@@ -92,7 +91,6 @@ export const SITE_DATA = {
     { cat: "DevOps & Tooling", skill: "Git & Deployment Workflows", rating: 3, year: 2026, notes: "Branching strategies, merge/pull requests, code review, deploying through dev / stage / prod pipelines." },
     { cat: "DevOps & Tooling", skill: "CI/CD Pipelines", rating: 2, year: 2026, notes: "Disney Rewards — ship through GitLab CI/CD; can use and extend existing pipelines." },
     { cat: "DevOps & Tooling", skill: "Postman", rating: 3, year: 2023, notes: "UC Health — API collections for Sling servlets." },
-    { cat: "DevOps & Tooling", skill: "Shell Scripting", rating: 3, year: 2026, notes: "Personal Linux server work — bash for service management, deploy hooks, log triage, and gluing the MCP + Nginx + WordPress automation together." },
     { cat: "Data & Analytics", skill: "Adobe Analytics", rating: 3, year: 2026, notes: "Disney Rewards (with CJA) and UC Health — Adobe Analytics tagging and data layer via Adobe Launch." },
     { cat: "CDP & Personalization", skill: "Adobe Target", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — at.js anti-flicker, mbox tracking." },
     { cat: "AI & Machine Learning", skill: "Prompt Engineering", rating: 2, year: 2026, notes: "Personal use of local AI tooling (LM Studio and similar) for experimentation; no production AI integrations." },
@@ -102,7 +100,7 @@ export const SITE_DATA = {
     { cat: "Security & Compliance", skill: "JWT / JOSE", rating: 4, year: 2026, notes: "Disney Rewards — JWS/JWE with web-token/jwt-framework and phpseclib3." },
     { cat: "Architecture", skill: "Agile / SAFe", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — Jira/Azure DevOps, merge requests, release branches." },
     { cat: "Architecture", skill: "System Design", rating: 3, year: 2026, notes: "Disney Rewards, UC Health and Labcorp — architecture analysis, research, and proposals at the application and integration layer." },
-    { cat: "Architecture", skill: "Technical Analysis & Documentation", rating: 3, year: 2026, notes: "Architecture analysis and research, technical strategy, diagrams and flowcharts, technical documentation." },
+    { cat: "Architecture", skill: "Technical Analysis & Documentation", rating: 4, year: 2026, notes: "Architecture analysis and research, technical strategy, diagrams and flowcharts, technical documentation." },
     { cat: "Healthcare", skill: "Epic EHR", rating: 2, year: 2023, notes: "UC Health — managed the integration; architecture-level familiarity." },
     { cat: "Game Dev / Hobby", skill: "C#", rating: 3, year: 2026, notes: "Personal Unity 3D game development — primary scripting language for multi-year hobby projects." },
     { cat: "Game Dev / Hobby", skill: "Unity 3D", rating: 3, year: 2026, notes: "Personal hobby — built a DOOM-style first-person shooter and other experiments; component scripting, scenes, prefabs, physics, input." },
@@ -117,10 +115,10 @@ export const SITE_DATA = {
       stack: ["Linux", "Nginx", "MCP", "WordPress REST", "GitHub Webhooks"],
     },
     {
-      title: "Unity DOOM-style FPS",
+      title: "Unity Boomer Shooter",
       kind: "Personal · multi-year",
-      blurb: "A first-person shooter built in Unity as a long-running side project. Component scripts in C#, hand-built scenes and prefabs, physics, input, level and environment design — the whole stack, just for the love of it.",
-      stack: ["Unity 3D", "C#", "Game Design"],
+      blurb: "A DOOM-style boomer shooter built in Unity — fast movement, hitscan combat, hand-built C# scripts, scenes and prefabs. Increasingly AI-augmented: Unity MCP and custom Claude connectors drive the editor, a custom Leonardo.ai pipeline generates art and textures, and a bespoke pipeline handles map design and generation end-to-end.",
+      stack: ["Unity 3D", "C#", "Unity MCP", "Claude connectors", "Leonardo.ai", "Map gen pipeline"],
     },
     {
       title: "Disney Rewards",
@@ -133,6 +131,110 @@ export const SITE_DATA = {
       kind: "Razorfish · 2019–2023",
       blurb: "Multi-module AEM (Adobe Experience Manager) project on a Maven build — OSGi services, Sling models and servlets, HTL templating, JCR packaging. Vue 2 in AEM clientlibs. Epic EHR integration architecture.",
       stack: ["AEM", "Java", "Sling", "Vue 2", "Maven"],
+    },
+  ],
+
+  // "Off the Clock" — the human behind the title. Used by v3.
+  hobbies: [
+    {
+      id: "code",
+      name: "Programming",
+      tag: "after hours",
+      glyph: "terminal",
+      blurb: "The work doesn't stop at the laptop lid. Weekends are a personal Linux box, a webhook, and Claude wired into my own CMS — where I explore the tools and ideas I bring back to the team.",
+      accent: "green",
+    },
+    {
+      id: "gamedev",
+      name: "Game Design",
+      tag: "unity · c#",
+      glyph: "joystick",
+      blurb: "A long-running, DOOM-style boomer shooter in Unity — hand-built scenes, C# scripts, physics and level design, now augmented with Unity MCP, custom Claude connectors and AI art and map-generation pipelines. A genuine passion project.",
+      accent: "clay",
+    },
+    {
+      id: "hiking",
+      name: "Hiking",
+      tag: "carolina trails",
+      glyph: "mountain",
+      blurb: "Trading the screen for a trailhead. Carolina ridgelines and greenways are the best place I know to think through a hard problem.",
+      accent: "green",
+    },
+    {
+      id: "running",
+      name: "Running",
+      tag: "logging miles",
+      glyph: "route",
+      blurb: "Miles around Charlotte to clear the head. Steady cadence, no notifications, one foot in front of the other.",
+      accent: "clay",
+    },
+    {
+      id: "gaming",
+      name: "Gaming",
+      tag: "controller down-time",
+      glyph: "controller",
+      blurb: "Studying the craft from the player's side of the screen — what makes a world worth exploring and a system worth mastering.",
+      accent: "green",
+    },
+    {
+      id: "family",
+      name: "Father & Husband",
+      tag: "the title that matters most",
+      glyph: "home",
+      blurb: "Above every waypoint on this map: dad and husband. The reason the rest of it is worth doing at all.",
+      accent: "clay",
+    },
+  ],
+
+  // Leadership scope — verified facts only (v3 "Leadership" waypoint).
+  leadership: {
+    intro: "Manager of Engineering is the title — but day to day I lead as the technical lead across major client accounts: setting the engineering bar, placing the right people on the work, and getting their contributions seen.",
+    scope: [
+      { v: "Up to 10", k: "Team size led", note: "front- & back-end engineers" },
+      { v: "Three", k: "Tech-lead accounts", note: "Disney Rewards · UC Health · Labcorp" },
+      { v: "Global", k: "Hiring reach", note: "US · India · Costa Rica" },
+      { v: "VP+ / CTO", k: "Partners with", note: "on a first-name basis" },
+    ],
+    facets: [
+      {
+        title: "Technical leadership",
+        body: "Tech lead across three flagship accounts — Disney Rewards, UC Health, and Labcorp (newest in 2026) — owning architecture direction and the quality bar for each engagement.",
+      },
+      {
+        title: "Hiring & staffing",
+        body: "Interview and place engineers for technical roles directly onto my teams — including hiring my own successor on Disney Rewards. Help shape the right resource mix on an account and manage tech hiring across India and Costa Rica.",
+      },
+      {
+        title: "Advocacy & growth",
+        body: "Champion strong work where it counts — surfacing engineers' contributions to leadership and making the case for their promotions.",
+      },
+      {
+        title: "Executive collaboration",
+        body: "Partner daily with VP+ technical leaders, and known by name to the CTO — translating engineering reality into decisions the business can act on.",
+      },
+      {
+        title: "Standards & practices",
+        body: "Vocal about how we write code, and I've streamlined teams onto an agreed set of rules — coding conventions, naming, formatting and spacing — so the codebase stays consistent, reviewable, and easy to hand off.",
+        wide: true,
+      },
+    ],
+  },
+
+  // Third-party endorsements (via LinkedIn) — v3 "References" waypoint.
+  testimonials: [
+    {
+      quote: "I had the pleasure of working with Evan Borden on several cross-functional projects, and he consistently delivered high-quality work with precision and thoughtfulness. Evan brings a sharp technical mind to every challenge and always asks the right questions to drive clarity and alignment — something that made our collaboration both efficient and effective. He also has a great sense for balancing user experience with technical feasibility, which made him a key contributor to building thoughtful, scalable solutions. What stands out most is his strong work ethic and professionalism. He's the kind of engineering partner you want on every team: reliable, detail-oriented, and always pushing to build better products. Any team would be lucky to have him!",
+      name: "Bianca Gassaway",
+      title: "Senior Technical Program Manager",
+      rel: "Worked with Evan on the same team",
+      date: "Jun 2025",
+    },
+    {
+      quote: "Evan is one of those rare developers you find in the hacker role in blockbuster movies — the protagonists go to him at their greatest time of need and in a matter of movie minutes he's in the mainframe, hacking the planet and ensuring the good guys win. He also has a fantastic bedside manner with clients and often provides excellent insight and technical acumen to save the day. I don't worry about tickets or difficult bugs when I assign them to Evan — they'll get done on time, and better documented at the end to boot.",
+      name: "Philip Kostka",
+      title: "Senior Technical Project Manager",
+      rel: "Was senior to Evan",
+      date: "Jun 2022",
     },
   ],
 };
