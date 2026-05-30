@@ -18,7 +18,7 @@ const D = SITE_DATA;
           <div className="meta">
             <span className="pill"><span className="dot"></span>Hands-on leader</span>
             <span className="pill"><span className="dot clay"></span>WordPress · AEM · cloud</span>
-            <span className="pill"><span className="dot"></span>Builds <a className="v3-glosslink" href="https://en.wikipedia.org/wiki/Shooter_game#Boomer_shooter" target="_blank" rel="noopener" title="What's a boomer shooter? (opens Wikipedia)">boomer shooters</a> in Unity</span>
+            <span className="pill"><span className="dot"></span>Tech lead · 3 flagship accounts</span>
           </div>
           <div className="start">
             <button className="v3-cta" onClick={() => onTravel("work")}>
