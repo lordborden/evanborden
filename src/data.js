@@ -8,7 +8,7 @@ export const SITE_DATA = {
   email: "evanpatrickborden@outlook.com",
   phone: "704.401.4864",
   linkedin: "https://www.linkedin.com/in/evan-borden/",
-  tagline: "Hands-on engineering leader. Ships software, mentors people, and builds boomer shooters in Unity on the side.",
+  tagline: "Hands-on engineering leader. Ships software, mentors people, and tinkers with game and AI projects on the side.",
   manifesto: "Eighteen years writing code, six leading the people who write it. I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
 
   experience: [
@@ -109,18 +109,6 @@ export const SITE_DATA = {
 
   projects: [
     {
-      title: "Claude × MCP × WordPress",
-      kind: "Personal · 2025–26",
-      blurb: "A self-hosted Linux box running custom Nginx that wires GitHub webhooks and the Model Context Protocol up to Claude apps. The result: prompt-driven WordPress page creation, automated code management, and CMS publishing that I drive from chat.",
-      stack: ["Linux", "Nginx", "MCP", "WordPress REST", "GitHub Webhooks"],
-    },
-    {
-      title: "Unity Boomer Shooter",
-      kind: "Personal · multi-year",
-      blurb: "A DOOM-style boomer shooter built in Unity — fast movement, hitscan combat, hand-built C# scripts, scenes and prefabs. Increasingly AI-augmented: Unity MCP and custom Claude connectors drive the editor, a custom Leonardo.ai pipeline generates art and textures, and a bespoke pipeline handles map design and generation end-to-end.",
-      stack: ["Unity 3D", "C#", "Unity MCP", "Claude connectors", "Leonardo.ai", "Map gen pipeline"],
-    },
-    {
       title: "Disney Rewards",
       kind: "Razorfish · 2019–present",
       blurb: "Custom WordPress platform with bespoke Gutenberg blocks, ACF Pro field architecture, Chase Bank API integration via JWT/JOSE, Adobe Analytics + CJA tagging, and Adobe Target personalization. Shipped through GitLab CI/CD.",
@@ -131,6 +119,18 @@ export const SITE_DATA = {
       kind: "Razorfish · 2019–2023",
       blurb: "Multi-module AEM (Adobe Experience Manager) project on a Maven build — OSGi services, Sling models and servlets, HTL templating, JCR packaging. Vue 2 in AEM clientlibs. Epic EHR integration architecture.",
       stack: ["AEM", "Java", "Sling", "Vue 2", "Maven"],
+    },
+    {
+      title: "Claude × MCP × WordPress",
+      kind: "Personal · 2025–26",
+      blurb: "A self-hosted Linux box running custom Nginx that wires GitHub webhooks and the Model Context Protocol up to Claude apps. The result: prompt-driven WordPress page creation, automated code management, and CMS publishing that I drive from chat.",
+      stack: ["Linux", "Nginx", "MCP", "WordPress REST", "GitHub Webhooks"],
+    },
+    {
+      title: "Unity Game Engine Project",
+      kind: "Personal · multi-year",
+      blurb: "A long-running Unity FPS built for the love of the craft — hand-built C# scripts, scenes and prefabs, with an increasingly AI-augmented toolchain: Unity MCP and custom Claude connectors driving the editor, a Leonardo.ai pipeline for art and textures, and a bespoke map design and generation pipeline.",
+      stack: ["Unity 3D", "C#", "Unity MCP", "Claude connectors", "Leonardo.ai", "Map gen pipeline"],
     },
   ],
 
