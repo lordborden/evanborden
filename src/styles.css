@@ -972,6 +972,66 @@ body.v3 {
   .v3 .v3-wp { padding: 10px 12px; font-size: 11px; }
 }
 
+/* =========================================================
+   MOBILE MODE — native vertical scroll (≤760px)
+   Replaces the pannable canvas with a stacked, scrollable page.
+   ========================================================= */
+body.v3.is-mobile {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+html:has(body.v3.is-mobile) { height: auto; overflow-y: auto; }
+
+.v3-stage.is-mobile {
+  position: relative;
+  inset: auto;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+.v3-stage.is-mobile .v3-topo { position: fixed; inset: 0; }
+.v3-stage.is-mobile::after { display: none; }
+
+.v3-scroll {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+  padding: 80px 14px 104px;
+}
+
+/* rooms become normal flow blocks */
+.v3-stage.is-mobile .v3-room {
+  position: relative;
+  left: auto; top: auto;
+  transform: none;
+  width: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  scroll-margin-top: 72px;
+}
+.v3-stage.is-mobile .v3-room.focused { box-shadow: var(--v3-shadow); border-color: var(--v3-line-2); }
+.v3-stage.is-mobile .v3-trailhead { padding-top: 26px; }
+
+/* legible fixed top bar over scrolling content */
+.v3-stage.is-mobile .v3-topbar {
+  background: color-mix(in oklab, var(--v3-paper), transparent 6%);
+  backdrop-filter: blur(10px) saturate(130%);
+  border-bottom: 1px solid var(--v3-line);
+}
+
+/* the kit list scrolls with the page on mobile rather than nesting a scroller */
+.v3-stage.is-mobile .v3-kit-list {
+  max-height: none;
+  overflow: visible;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .v3-world.animate { transition: transform .2s ease; }
   .v3-trails .leg { animation: none; }
