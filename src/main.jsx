@@ -68,6 +68,13 @@ const D = SITE_DATA;
     camRef.current = cam;
     const drag = useRef({ active: false, moved: false, sx: 0, sy: 0, cx: 0, cy: 0 });
 
+    /* mobile mode: below this width we abandon the pannable canvas for a native
+       vertical scroll, since drag-to-roam + fixed-size panels don't work on a phone. */
+    const isMobile = vp.w <= 760;
+    const mobileRef = useRef(isMobile);
+    mobileRef.current = isMobile;
+    const [mActive, setMActive] = useState("trailhead");
+
     /* viewport size */
     useEffect(() => {
       const onResize = () => setVp({ w: window.innerWidth, h: window.innerHeight });
@@ -105,11 +112,19 @@ const D = SITE_DATA;
     }, [vp]);
 
     const travel = useCallback((id, persist = true) => {
-      const r = BY_ID[id];
-      if (!r) return;
-      setOverview(false);
-      setAnimate(true);
-      setCam({ x: r.cx, y: r.cy, zoom: 1 });
+      if (mobileRef.current) {
+        const el = document.getElementById("room-" + id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 64;
+          window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+        }
+      } else {
+        const r = BY_ID[id];
+        if (!r) return;
+        setOverview(false);
+        setAnimate(true);
+        setCam({ x: r.cx, y: r.cy, zoom: 1 });
+      }
       if (persist) { try { localStorage.setItem("v3-room", id); } catch (e) {} }
     }, []);
 
@@ -143,7 +158,26 @@ const D = SITE_DATA;
       if (!btn) return;
       const target = btn.offsetLeft - dock.clientWidth / 2 + btn.offsetWidth / 2;
       dock.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
-    }, [active]);
+    }, [active, mActive]);
+
+    /* mobile: reflect body scroll state + track the section in view for the dock */
+    useEffect(() => {
+      document.body.classList.toggle("is-mobile", isMobile);
+      return () => document.body.classList.remove("is-mobile");
+    }, [isMobile]);
+
+    useEffect(() => {
+      if (!isMobile || !("IntersectionObserver" in window)) return;
+      const els = ROOMS.map((r) => document.getElementById("room-" + r.id)).filter(Boolean);
+      if (!els.length) return;
+      const obs = new IntersectionObserver((entries) => {
+        const vis = entries.filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (vis) setMActive(vis.target.id.replace("room-", ""));
+      }, { rootMargin: "-28% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] });
+      els.forEach((e) => obs.observe(e));
+      return () => obs.disconnect();
+    }, [isMobile]);
 
     /* keyboard: arrows/WASD roam, 0-5 travel, o overview, / search */
     useEffect(() => {
@@ -173,9 +207,10 @@ const D = SITE_DATA;
         setOverview(false);
         setCam((c) => ({ ...c, x: c.x + dx, y: c.y + dy }));
       };
+      if (mobileRef.current) return;
       window.addEventListener("keydown", onKey);
       return () => window.removeEventListener("keydown", onKey);
-    }, [travel, toggleOverview]);
+    }, [travel, toggleOverview, isMobile]);
 
     /* drag to pan — capture only once an actual drag begins, so clicks on links/buttons work */
     const onPointerDown = (e) => {
@@ -205,13 +240,101 @@ const D = SITE_DATA;
       if (drag.current.moved) { e.stopPropagation(); e.preventDefault(); }
     };
 
-    /* world transform */
+    /* world transform (desktop only) */
     const worldStyle = {
       transform: `translate(${vp.w / 2}px, ${vp.h / 2}px) scale(${cam.zoom}) translate(${-cam.x}px, ${-cam.y}px)`,
     };
     const topoStyle = { transform: `translate(${-cam.x * 0.25}px, ${-cam.y * 0.25}px)` };
     const topoHiStyle = { transform: `translate(${-cam.x * 0.12}px, ${-cam.y * 0.12}px)` };
 
+    const dockActive = isMobile ? mActive : active;
+
+    const roomHead = (r) => (r.id !== "trailhead" ? (
+      <div className="v3-room-head">
+        <span className="code">{r.code}</span>
+        <span className="title">{TITLES[r.id]}</span>
+        <span className="coord">{coordOf(r.cx, r.cy)}</span>
+      </div>
+    ) : null);
+
+    const hud = (
+      <div className="v3-hud">
+        <div className="v3-topbar">
+          <div className="v3-brand">
+            <div className="seal">E</div>
+            <div className="who">
+              <div className="n">Evan Borden</div>
+              <div className="r">Manager · Engineering</div>
+            </div>
+          </div>
+          <div className="spacer"></div>
+          <div className="v3-readout">
+            <span className="seg live">LIVE</span>
+            <span className="seg"><span className="lbl">CLT</span> {clock}</span>
+            <span className="div"></span>
+            <span className="seg"><span className="lbl">POS</span> {coordOf(cam.x, cam.y)}</span>
+          </div>
+          <div className="v3-versions">
+            <a href="/v1/" title="v1 — Editorial Dark">v1</a>
+            <a href="/v2/" title="v2 — Personal Cockpit">v2</a>
+            <span className="cur" title="v3 — Field Map">v3</span>
+          </div>
+        </div>
+
+        <nav className="v3-dock" ref={dockRef}>
+          {ROOMS.map((r) => (
+            <button key={r.id} className="v3-wp" aria-current={dockActive === r.id ? "true" : "false"} onClick={() => travel(r.id)}>
+              <span className="idx">{r.code}</span>{r.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className="v3-hint">
+          <kbd>drag</kbd> to roam · <kbd>↑↓←→</kbd> / <kbd>WASD</kbd> to move<br />
+          <kbd>0</kbd>–<kbd>7</kbd> jump · <kbd>O</kbd> overview
+        </div>
+
+        {!isMobile && (
+          <Mini cam={cam} vp={vp} active={active} overview={overview}
+            onNode={travel} onToggle={toggleOverview} />
+        )}
+      </div>
+    );
+
+    const introEl = (
+      <div className={"v3-intro" + (intro ? "" : " gone")}>
+        <div className="inner">
+          <div className="compass-mark"></div>
+          <div className="label">plotting the map…</div>
+        </div>
+      </div>
+    );
+
+    /* ---- mobile: native vertical scroll ---- */
+    if (isMobile) {
+      return (
+        <div className="v3-stage is-mobile">
+          <div className="v3-topo"></div>
+          <div className="v3-topo hi"></div>
+          <div className="v3-scroll">
+            {ROOMS.map((r) => (
+              <section
+                key={r.id}
+                id={"room-" + r.id}
+                className={"v3-room v3-" + r.id + (dockActive === r.id ? " focused" : "")}
+              >
+                {roomHead(r)}
+                <RoomBody id={r.id} travel={travel} />
+              </section>
+            ))}
+          </div>
+          {hud}
+          {introEl}
+        </div>
+      );
+    }
+
+    /* ---- desktop: pannable canvas ---- */
     return (
       <div className="v3-stage">
         <div className="v3-topo" style={topoStyle}></div>
@@ -234,66 +357,15 @@ const D = SITE_DATA;
                 className={"v3-room v3-" + r.id + (active === r.id ? " focused" : "")}
                 style={{ left: r.cx, top: r.cy, width: r.w, transform: "translate(-50%, -50%)" }}
               >
-                {r.id !== "trailhead" && (
-                  <div className="v3-room-head">
-                    <span className="code">{r.code}</span>
-                    <span className="title">{TITLES[r.id]}</span>
-                    <span className="coord">{coordOf(r.cx, r.cy)}</span>
-                  </div>
-                )}
+                {roomHead(r)}
                 <RoomBody id={r.id} travel={travel} />
               </section>
             ))}
           </div>
         </div>
 
-        {/* HUD */}
-        <div className="v3-hud">
-          <div className="v3-topbar">
-            <div className="v3-brand">
-              <div className="seal">E</div>
-              <div className="who">
-                <div className="n">Evan Borden</div>
-                <div className="r">Manager · Engineering</div>
-              </div>
-            </div>
-            <div className="spacer"></div>
-            <div className="v3-readout">
-              <span className="seg live">LIVE</span>
-              <span className="seg"><span className="lbl">CLT</span> {clock}</span>
-              <span className="div"></span>
-              <span className="seg"><span className="lbl">POS</span> {coordOf(cam.x, cam.y)}</span>
-            </div>
-            <div className="v3-versions">
-              <a href="/v1/" title="v1 — Editorial Dark">v1</a>
-              <a href="/v2/" title="v2 — Personal Cockpit">v2</a>
-              <span className="cur" title="v3 — Field Map">v3</span>
-            </div>
-          </div>
-
-          <nav className="v3-dock" ref={dockRef}>
-            {ROOMS.map((r, i) => (
-              <button key={r.id} className="v3-wp" aria-current={active === r.id ? "true" : "false"} onClick={() => travel(r.id)}>
-                <span className="idx">{r.code}</span>{r.label}
-              </button>
-            ))}
-          </nav>
-
-          <div className="v3-hint">
-            <kbd>drag</kbd> to roam · <kbd>↑↓←→</kbd> / <kbd>WASD</kbd> to move<br />
-            <kbd>0</kbd>–<kbd>7</kbd> jump · <kbd>O</kbd> overview
-          </div>
-
-          <Mini cam={cam} vp={vp} active={active} overview={overview}
-            onNode={travel} onToggle={toggleOverview} />
-        </div>
-
-        <div className={"v3-intro" + (intro ? "" : " gone")}>
-          <div className="inner">
-            <div className="compass-mark"></div>
-            <div className="label">plotting the map…</div>
-          </div>
-        </div>
+        {hud}
+        {introEl}
       </div>
     );
   }
