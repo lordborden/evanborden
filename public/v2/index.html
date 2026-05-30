@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XRZBDYCF7"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2XRZBDYCF7');</script>
+<title>Evan Borden — Personal Cockpit (v2)</title>
+<meta name="description" content="Evan Borden — Manager of Engineering. Personal cockpit edition." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;450;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles-v2.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body class="v2">
+<div aria-label="version switcher" style="position:fixed;top:12px;right:12px;z-index:99999;display:flex;gap:3px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;background:rgba(12,12,12,.55);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:3px;backdrop-filter:blur(8px)"><a href="/v1/" style="color:#cfcfcf;background:transparent;text-decoration:none;padding:5px 11px;border-radius:999px;display:inline-block">v1</a><a href="/v2/" style="color:#0b0b0b;background:#e9e2d2;text-decoration:none;padding:5px 11px;border-radius:999px;display:inline-block">v2</a><a href="/" style="color:#cfcfcf;background:transparent;text-decoration:none;padding:5px 11px;border-radius:999px;display:inline-block">v3</a></div>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script type="text/babel" src="panes-1.jsx"></script>
+<script type="text/babel" src="panes-2.jsx"></script>
+<script type="text/babel">
+  const { useState, useEffect } = React;
+  const { V2Shell, V2Sidebar, V2Status, V2Hero, V2Readme, V2Experience } = window.V2Parts1;
+  const { V2Skills, V2Projects, V2Contact } = window.V2Parts2;
+
+  function V2App() {
+    const [active, setActive] = useState("hero");
+
+    useEffect(() => {
+      const ids = ["hero","readme","work","skills","projects","contact"];
+      const els = ids.map(id => document.getElementById(`pane-${id}`)).filter(Boolean);
+      if (!els.length || !("IntersectionObserver" in window)) return;
+      const obs = new IntersectionObserver((entries) => {
+        const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const id = visible.target.id.replace("pane-", "");
+          setActive(id);
+        }
+      }, { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75] });
+      els.forEach(e => obs.observe(e));
+      return () => obs.disconnect();
+    }, []);
+
+    useEffect(() => {
+      const onKey = (e) => {
+        if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
+          const el = document.querySelector(".v2-grep input");
+          if (el) { e.preventDefault(); el.focus(); }
+        }
+      };
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }, []);
+
+    return (
+      <div className="v2-shell">
+        <V2Shell active={active} setActive={setActive} />
+        <div className="v2-body">
+          <V2Sidebar active={active} setActive={setActive} />
+          <main className="v2-main">
+            <V2Hero />
+            <V2Readme />
+            <V2Experience />
+            <V2Skills />
+            <V2Projects />
+            <V2Contact />
+          </main>
+        </div>
+        <V2Status active={active} />
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<V2App />);
+</script>
+</body>
+</html>

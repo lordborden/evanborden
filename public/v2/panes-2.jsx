@@ -1,23 +1,24 @@
-import React, { useState, useMemo } from "react";
-import { SITE_DATA } from "../data.js";
-import { PaneHead } from "./shell.jsx";
+/* global React */
+const { useState: useS2, useMemo: useM2 } = React;
+const PaneHead = window.PaneHead;
 
 // ============================================================
-// SKILLS — TSV data grid w/ grep + sort + category chips
+// SKILLS — TSV table with grep + sort + category chips
 // ============================================================
-export function V2Skills() {
-  const cats = useMemo(() => {
+function V2Skills() {
+  const D = window.SITE_DATA;
+  const cats = useM2(() => {
     const m = new Map();
-    for (const s of SITE_DATA.skills) m.set(s.cat, (m.get(s.cat) || 0) + 1);
-    return [["All", SITE_DATA.skills.length], ...Array.from(m.entries())];
+    for (const s of D.skills) m.set(s.cat, (m.get(s.cat) || 0) + 1);
+    return [["All", D.skills.length], ...Array.from(m.entries())];
   }, []);
-  const [active, setActive] = useState("All");
-  const [open, setOpen] = useState(null);
-  const [sort, setSort] = useState({ key: "rating", dir: "desc" });
-  const [q, setQ] = useState("");
+  const [active, setActive] = useS2("All");
+  const [open, setOpen] = useS2(null);
+  const [sort, setSort] = useS2({ key: "rating", dir: "desc" });
+  const [q, setQ] = useS2("");
 
-  const view = useMemo(() => {
-    let v = active === "All" ? SITE_DATA.skills.slice() : SITE_DATA.skills.filter(s => s.cat === active);
+  const view = useM2(() => {
+    let v = active === "All" ? D.skills.slice() : D.skills.filter(s => s.cat === active);
     if (q) {
       const needle = q.toLowerCase();
       v = v.filter(s =>
@@ -42,15 +43,13 @@ export function V2Skills() {
   const levelLabel = ["", "Beginner", "Developing", "Proficient", "Expert"];
 
   const toggleSort = (k) => {
-    setSort(s => s.key === k
-      ? { key: k, dir: s.dir === "asc" ? "desc" : "asc" }
-      : { key: k, dir: (k === "name" || k === "cat") ? "asc" : "desc" });
+    setSort(s => s.key === k ? { key: k, dir: s.dir === "asc" ? "desc" : "asc" } : { key: k, dir: k === "name" || k === "cat" ? "asc" : "desc" });
   };
   const Arr = ({ k }) => sort.key === k ? <span className="arr">{sort.dir === "asc" ? "↑" : "↓"}</span> : null;
 
   return (
     <section id="pane-skills">
-      <PaneHead path="~/career" file="skills.tsv" lang={`${view.length} / ${SITE_DATA.skills.length} rows`} />
+      <PaneHead path="~/career" file="skills.tsv" lang={`${view.length} / ${D.skills.length} rows`} />
       <div className="v2-pane">
         <div className="v2-skills-head">
           <h2 className="v2-section-title">Self-rated, <span className="ital">honestly.</span></h2>
@@ -122,7 +121,7 @@ export function V2Skills() {
             );
           })}
           <div className="v2-tfoot">
-            <span>{view.length} of {SITE_DATA.skills.length} rows · self-rated from internal tracker</span>
+            <span>{view.length} of {D.skills.length} rows · self-rated from internal tracker</span>
             <span>sorted by {sort.key} {sort.dir}</span>
           </div>
         </div>
@@ -134,7 +133,8 @@ export function V2Skills() {
 // ============================================================
 // PROJECTS — repo cards
 // ============================================================
-export function V2Projects() {
+function V2Projects() {
+  const D = window.SITE_DATA;
   const langs = ["php", "cs", "php", "java"];
   return (
     <section id="pane-projects">
@@ -143,7 +143,7 @@ export function V2Projects() {
         <h2 className="v2-section-title">Things I've <span className="ital">built.</span></h2>
         <p className="v2-section-sub"># client work + nights-and-weekends. the hobby projects are how the day job stays sharp.</p>
         <div className="v2-repos">
-          {SITE_DATA.projects.map((p, i) => {
+          {D.projects.map((p, i) => {
             const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
             const isPublic = !!p.kind.match(/Personal/);
             return (
@@ -178,7 +178,8 @@ export function V2Projects() {
 // ============================================================
 // CONTACT — shell prompt
 // ============================================================
-export function V2Contact() {
+function V2Contact() {
+  const D = window.SITE_DATA;
   return (
     <section id="pane-contact">
       <PaneHead path="~" file="contact.sh" lang="shell" />
@@ -194,17 +195,17 @@ export function V2Contact() {
           <div className="line">
             <span style={{ color: "var(--v2-cyan)" }}>email</span>
             <span className="sep">=</span>
-            <span className="out"><a href={`mailto:${SITE_DATA.email}`}>{SITE_DATA.email}</a></span>
+            <span className="out"><a href={`mailto:${D.email}`}>{D.email}</a></span>
           </div>
           <div className="line">
             <span style={{ color: "var(--v2-cyan)" }}>phone</span>
             <span className="sep">=</span>
-            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>{SITE_DATA.phone}</span>
+            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>{D.phone}</span>
           </div>
           <div className="line">
             <span style={{ color: "var(--v2-cyan)" }}>linkedin</span>
             <span className="sep">=</span>
-            <span className="out"><a href={SITE_DATA.linkedin} target="_blank" rel="noopener">linkedin.com/in/evan-borden</a></span>
+            <span className="out"><a href={D.linkedin} target="_blank" rel="noopener">linkedin.com/in/evan-borden</a></span>
           </div>
           <div className="line">
             <span style={{ color: "var(--v2-cyan)" }}>location</span>
@@ -214,13 +215,7 @@ export function V2Contact() {
           <div className="line">
             <span style={{ color: "var(--v2-cyan)" }}>education</span>
             <span className="sep">=</span>
-            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>
-              {SITE_DATA.education.map((e, i) => (
-                <span key={i} style={{ display: "block" }}>
-                  {e.school} · {e.degree} <span style={{ color: "var(--v2-ink-faint)" }}>({e.years})</span>
-                </span>
-              ))}
-            </span>
+            <span className="out" style={{ color: "var(--v2-ink-soft)" }}>UNC Charlotte · B.S. Computer Science</span>
           </div>
           <div className="line" style={{ marginTop: 12 }}>
             <span style={{ color: "var(--v2-mint)" }}>$</span>
@@ -237,11 +232,11 @@ export function V2Contact() {
 
         <div style={{ marginTop: 60, color: "var(--v2-ink-faint)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
           <span>© 2026 Evan Borden · built with HTML & opinions</span>
-          <span>
-            v2.0 · personal cockpit · <a href="/v1/" style={{ textDecoration: "underline", textDecorationColor: "var(--v2-ink-faint)" }}>see v1 ↗</a>
-          </span>
+          <span>v2.0 · personal cockpit · 2026.05</span>
         </div>
       </div>
     </section>
   );
 }
+
+window.V2Parts2 = { V2Skills, V2Projects, V2Contact };
