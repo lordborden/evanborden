@@ -1,7 +1,6 @@
 /* v3 rooms — part 2: Builds, Off the Clock (hobbies), Find Me */
-import React from "react";
-import { SITE_DATA } from "../data.js";
-const D = SITE_DATA;
+(function () {
+  const D = window.SITE_DATA;
 
   /* wrap any "boomer shooter(s)" mention in a subtle glossary link to a reliable definition */
   const BOOMER_URL = "https://en.wikipedia.org/wiki/Shooter_game#Boomer_shooter";
@@ -14,6 +13,7 @@ const D = SITE_DATA;
         : p
     );
   }
+  window.V3Util = { linkBoomer, BOOMER_URL };
 
   /* simple line glyphs for hobbies (UI icons, stroked currentColor) */
   const GLYPHS = {
@@ -140,4 +140,5 @@ const D = SITE_DATA;
     );
   }
 
-export { Builds, OffClock, References, FindMe };
+  window.V3Rooms2 = { Builds, OffClock, References, FindMe };
+})();

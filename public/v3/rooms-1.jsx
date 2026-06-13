@@ -1,8 +1,7 @@
 /* v3 rooms — part 1: Trailhead (hero), The Work, The Kit */
-import React, { useState, useMemo } from "react";
-import { SITE_DATA } from "../data.js";
-const D = SITE_DATA;
-
+(function () {
+  const { useState, useMemo } = React;
+  const D = window.SITE_DATA;
 
   /* ---------------- ROOM 00 — TRAILHEAD ---------------- */
   function Trailhead({ onTravel }) {
@@ -180,4 +179,5 @@ const D = SITE_DATA;
     );
   }
 
-export { Trailhead, Leadership, Work, Kit };
+  window.V3Rooms1 = { Trailhead, Leadership, Work, Kit };
+})();
