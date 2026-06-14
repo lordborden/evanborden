@@ -1,6 +1,4 @@
 /* v4 — Leadership, Skills, Projects */
-import React from "react";
-import { tidyProse } from "./sections1.jsx";
 
 /* ---- Leadership ---- */
 function Leadership({ data }) {
@@ -64,7 +62,6 @@ function Skills({ data }) {
     const ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
   });
-  // sort within each by rating desc
   cats.forEach((c) => groups[c].sort((a, b) => b.rating - a.rating));
 
   return (
@@ -145,4 +142,4 @@ function Projects({ data }) {
   );
 }
 
-export { Leadership, Skills, Projects };
+Object.assign(window, { Leadership, Skills, Projects });

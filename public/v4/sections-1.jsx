@@ -1,5 +1,5 @@
 /* v4 — shared helpers + Nav, Hero (Three.js), About, Experience */
-import React, { useState, useEffect, useRef, useCallback } from "react";
+const { useState, useEffect, useRef, useCallback } = React;
 
 /* ---- copy tidiers (v4-scoped: keeps shared data.js untouched) ---- */
 function tidyProse(s) {
@@ -253,15 +253,16 @@ function About({ data }) {
           <div className="v4-about-body v4-reveal">
             <p className="v4-eyebrow">About</p>
             <p>
-              Eighteen years writing code, seven leading the people who write
-              it. I came up through WordPress themes and AEM modules, ship
-              through GitLab and Azure DevOps, and still spend weekends on a
-              personal Linux box wiring Claude up to a webhook so it can publish
-              to my own CMS.
+              Eighteen years building software, seven of them leading the
+              engineers who build it. My background runs from enterprise
+              WordPress and AEM platforms to modern CI/CD on GitLab and Azure
+              DevOps, with ongoing hands-on work bringing AI tooling into real
+              engineering workflows.
             </p>
             <p>
-              The job is to make the team faster, the codebase calmer, and the
-              client confident, in roughly that order. I lead as the{" "}
+              The priorities stay the same at every level: make the team
+              faster, the codebase calmer, and the client confident. I lead as
+              the{" "}
               <strong>technical lead</strong> across major client accounts:
               setting the engineering bar, placing the right people on the work,
               and getting their contributions seen.
@@ -343,4 +344,4 @@ function Experience({ data }) {
   );
 }
 
-export { useReveal, tidyProse, tidyRange, Icon, Nav, Hero, About, Experience };
+Object.assign(window, { useReveal, tidyProse, tidyRange, Icon, Nav, Hero, About, Experience });

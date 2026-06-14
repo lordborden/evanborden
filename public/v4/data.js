@@ -1,5 +1,5 @@
 // Evan Borden — site content & skills data
-export const SITE_DATA = {
+window.SITE_DATA = {
   name: "Evan Borden",
   role: "Manager, Engineering",
   company: "Razorfish",
@@ -67,7 +67,6 @@ export const SITE_DATA = {
     { school: "Central Piedmont Community College", degree: "A.A.S. Advertising + Graphic Design", years: "2004 — 2006" },
   ],
 
-  // Parsed from skills.xlsx — categories, skill, rating 1-4, last used, evidence
   skills: [
     { cat: "Cloud & Infrastructure", skill: "AWS", rating: 3, year: 2026, notes: "Personal projects (multi-year) — VM (EC2) provisioning, security groups, networking, DNS / Route 53, domain management, cost monitoring." },
     { cat: "Cloud & Infrastructure", skill: "Azure", rating: 3, year: 2026, notes: "Personal projects (multi-year) — VM provisioning, network security groups, DNS, domain management, cost analysis." },
@@ -134,7 +133,6 @@ export const SITE_DATA = {
     },
   ],
 
-  // "Off the Clock" — the human behind the title. Used by v3.
   hobbies: [
     { id: "code", name: "Programming", tag: "after hours", glyph: "terminal", blurb: "The work doesn't stop at the laptop lid. Weekends are a personal Linux box, a webhook, and Claude wired into my own CMS — where I explore the tools and ideas I bring back to the team.", accent: "green" },
     { id: "gamedev", name: "Game Design", tag: "unity · c#", glyph: "joystick", blurb: "A long-running, DOOM-style boomer shooter in Unity — hand-built scenes, C# scripts, physics and level design, now augmented with Unity MCP, custom Claude connectors and AI art and map-generation pipelines. A genuine passion project.", accent: "clay" },
@@ -144,7 +142,6 @@ export const SITE_DATA = {
     { id: "family", name: "Father & Husband", tag: "the title that matters most", glyph: "home", blurb: "Above every waypoint on this map: dad and husband. The reason the rest of it is worth doing at all.", accent: "clay" },
   ],
 
-  // Leadership scope — verified facts only (v3 "Leadership" waypoint).
   leadership: {
     intro: "Manager of Engineering is the title — but day to day I lead as the technical lead across major client accounts: setting the engineering bar, placing the right people on the work, and getting their contributions seen.",
     scope: [
@@ -162,7 +159,6 @@ export const SITE_DATA = {
     ],
   },
 
-  // Third-party endorsements (via LinkedIn) — v3 "References" waypoint.
   testimonials: [
     {
       quote: "I had the pleasure of working with Evan Borden on several cross-functional projects, and he consistently delivered high-quality work with precision and thoughtfulness. Evan brings a sharp technical mind to every challenge and always asks the right questions to drive clarity and alignment — something that made our collaboration both efficient and effective. He also has a great sense for balancing user experience with technical feasibility, which made him a key contributor to building thoughtful, scalable solutions. What stands out most is his strong work ethic and professionalism. He's the kind of engineering partner you want on every team: reliable, detail-oriented, and always pushing to build better products. Any team would be lucky to have him!",

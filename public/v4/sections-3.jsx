@@ -1,8 +1,4 @@
 /* v4 — References, Off-the-clock, Contact, Tweaks panel, App assembly */
-import React, { useState, useEffect, useCallback } from "react";
-import { SITE_DATA } from "../data.js";
-import { useReveal, tidyProse, tidyRange, Icon, Nav, Hero, About, Experience } from "./sections1.jsx";
-import { Leadership, Skills, Projects } from "./sections2.jsx";
 
 /* ---- References ---- */
 function References({ data }) {
@@ -109,12 +105,6 @@ function Contact({ data }) {
       <div className="v4-foot">
         <div className="v4-foot-inner">
           <span>© {new Date().getFullYear()} Evan Borden · Charlotte, NC</span>
-          <span className="v4-foot-vers">
-            <a href="/v1/">v1</a>
-            <a href="/v2/">v2</a>
-            <a href="/v3/">v3</a>
-            <span style={{ color: "var(--accent-bright)" }}>v4 · current</span>
-          </span>
         </div>
       </div>
     </section>
@@ -185,7 +175,7 @@ function Tweaks({ open, onClose, t, set }) {
 
 /* ---- App ---- */
 function V4App() {
-  const data = SITE_DATA;
+  const data = window.SITE_DATA;
   const [t, setT] = useState(() => ({ ...window.V4_TWEAKS }));
   const [panelOpen, setPanelOpen] = useState(false);
   const [active, setActive] = useState("about");
@@ -201,7 +191,6 @@ function V4App() {
     { id: "contact", label: "Contact" },
   ];
 
-  /* apply tweaks to <body class="v4"> */
   useEffect(() => {
     const el = document.body;
     el.setAttribute("data-theme", t.theme);
@@ -222,7 +211,6 @@ function V4App() {
     });
   }, []);
 
-  /* host tweaks protocol */
   useEffect(() => {
     const onMsg = (e) => {
       const d = e.data || {};
@@ -239,7 +227,6 @@ function V4App() {
     try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {}
   }, []);
 
-  /* scroll spy */
   useEffect(() => {
     const ids = ["about", ...sections.map((s) => s.id)];
     const onScroll = () => {
@@ -272,4 +259,4 @@ function V4App() {
   );
 }
 
-export { V4App };
+window.V4App = V4App;

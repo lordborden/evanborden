@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { V4App } from "./components/sections3.jsx";
+import { App, initParallax } from "./components/parts2.jsx";
 import "./styles.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(<V4App />);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+requestAnimationFrame(initParallax);
