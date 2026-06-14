@@ -9,7 +9,7 @@ export const SITE_DATA = {
   phone: "704.401.4864",
   linkedin: "https://www.linkedin.com/in/evan-borden/",
   tagline: "Hands-on engineering leader. Ships software, mentors people, and tinkers with game and AI projects on the side.",
-  manifesto: "Eighteen years writing code, seven leading the people who write it. I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
+  manifesto: "Eighteen years building software, seven of them leading the engineers who build it. My background runs from enterprise WordPress and AEM platforms to modern CI/CD on GitLab and Azure DevOps, with ongoing hands-on work bringing AI tooling into real engineering workflows. The priorities stay the same at every level: make the team faster, the codebase calmer, and the client confident.",
 
   experience: [
     {
@@ -136,54 +136,12 @@ export const SITE_DATA = {
 
   // "Off the Clock" — the human behind the title. Used by v3.
   hobbies: [
-    {
-      id: "code",
-      name: "Programming",
-      tag: "after hours",
-      glyph: "terminal",
-      blurb: "The work doesn't stop at the laptop lid. Weekends are a personal Linux box, a webhook, and Claude wired into my own CMS — where I explore the tools and ideas I bring back to the team.",
-      accent: "green",
-    },
-    {
-      id: "gamedev",
-      name: "Game Design",
-      tag: "unity · c#",
-      glyph: "joystick",
-      blurb: "A long-running, DOOM-style boomer shooter in Unity — hand-built scenes, C# scripts, physics and level design, now augmented with Unity MCP, custom Claude connectors and AI art and map-generation pipelines. A genuine passion project.",
-      accent: "clay",
-    },
-    {
-      id: "hiking",
-      name: "Hiking",
-      tag: "carolina trails",
-      glyph: "mountain",
-      blurb: "Trading the screen for a trailhead. Carolina ridgelines and greenways are the best place I know to think through a hard problem.",
-      accent: "green",
-    },
-    {
-      id: "running",
-      name: "Running",
-      tag: "logging miles",
-      glyph: "route",
-      blurb: "Miles around Charlotte to clear the head. Steady cadence, no notifications, one foot in front of the other.",
-      accent: "clay",
-    },
-    {
-      id: "gaming",
-      name: "Gaming",
-      tag: "controller down-time",
-      glyph: "controller",
-      blurb: "Studying the craft from the player's side of the screen — what makes a world worth exploring and a system worth mastering.",
-      accent: "green",
-    },
-    {
-      id: "family",
-      name: "Father & Husband",
-      tag: "the title that matters most",
-      glyph: "home",
-      blurb: "Above every waypoint on this map: dad and husband. The reason the rest of it is worth doing at all.",
-      accent: "clay",
-    },
+    { id: "code", name: "Programming", tag: "after hours", glyph: "terminal", blurb: "The work doesn't stop at the laptop lid. Weekends are a personal Linux box, a webhook, and Claude wired into my own CMS — where I explore the tools and ideas I bring back to the team.", accent: "green" },
+    { id: "gamedev", name: "Game Design", tag: "unity · c#", glyph: "joystick", blurb: "A long-running, DOOM-style boomer shooter in Unity — hand-built scenes, C# scripts, physics and level design, now augmented with Unity MCP, custom Claude connectors and AI art and map-generation pipelines. A genuine passion project.", accent: "clay" },
+    { id: "hiking", name: "Hiking", tag: "carolina trails", glyph: "mountain", blurb: "Trading the screen for a trailhead. Carolina ridgelines and greenways are the best place I know to think through a hard problem.", accent: "green" },
+    { id: "running", name: "Running", tag: "logging miles", glyph: "route", blurb: "Miles around Charlotte to clear the head. Steady cadence, no notifications, one foot in front of the other.", accent: "clay" },
+    { id: "gaming", name: "Gaming", tag: "controller down-time", glyph: "controller", blurb: "Studying the craft from the player's side of the screen — what makes a world worth exploring and a system worth mastering.", accent: "green" },
+    { id: "family", name: "Father & Husband", tag: "the title that matters most", glyph: "home", blurb: "Above every waypoint on this map: dad and husband. The reason the rest of it is worth doing at all.", accent: "clay" },
   ],
 
   // Leadership scope — verified facts only (v3 "Leadership" waypoint).
@@ -196,27 +154,11 @@ export const SITE_DATA = {
       { v: "VP+ / CTO", k: "Partners with", note: "on a first-name basis" },
     ],
     facets: [
-      {
-        title: "Technical leadership",
-        body: "Tech lead across three flagship accounts — Disney Rewards, UC Health, and Labcorp (newest in 2026) — owning architecture direction and the quality bar for each engagement.",
-      },
-      {
-        title: "Hiring & staffing",
-        body: "Interview and place engineers for technical roles directly onto my teams — including hiring my own successor on Disney Rewards. Help shape the right resource mix on an account and manage tech hiring across India and Costa Rica.",
-      },
-      {
-        title: "Advocacy & growth",
-        body: "Champion strong work where it counts — surfacing engineers' contributions to leadership and making the case for their promotions.",
-      },
-      {
-        title: "Executive collaboration",
-        body: "Partner daily with VP+ technical leaders, and known by name to the CTO — translating engineering reality into decisions the business can act on.",
-      },
-      {
-        title: "Standards & practices",
-        body: "Vocal about how we write code, and I've streamlined teams onto an agreed set of rules — coding conventions, naming, formatting and spacing — so the codebase stays consistent, reviewable, and easy to hand off.",
-        wide: true,
-      },
+      { title: "Technical leadership", body: "Tech lead across three flagship accounts — Disney Rewards, UC Health, and Labcorp (newest in 2026) — owning architecture direction and the quality bar for each engagement." },
+      { title: "Hiring & staffing", body: "Interview and place engineers for technical roles directly onto my teams — including hiring my own successor on Disney Rewards. Help shape the right resource mix on an account and manage tech hiring across India and Costa Rica." },
+      { title: "Advocacy & growth", body: "Champion strong work where it counts — surfacing engineers' contributions to leadership and making the case for their promotions." },
+      { title: "Executive collaboration", body: "Partner daily with VP+ technical leaders, and known by name to the CTO — translating engineering reality into decisions the business can act on." },
+      { title: "Standards & practices", body: "Vocal about how we write code, and I've streamlined teams onto an agreed set of rules — coding conventions, naming, formatting and spacing — so the codebase stays consistent, reviewable, and easy to hand off.", wide: true },
     ],
   },
 
