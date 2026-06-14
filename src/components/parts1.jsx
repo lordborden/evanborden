@@ -119,11 +119,11 @@ function About() {
         <div className="v5-about-grid">
           <div className="v5-about-body v5-rev">
             <p>
-              Eighteen years writing code, seven leading the people who write
-              it. I came up through WordPress themes and AEM modules, ship
-              through GitLab and Azure DevOps, and still spend weekends on a
-              personal Linux box wiring Claude up to a webhook so it can
-              publish to my own CMS.
+              Eighteen years building software, seven of them leading the
+              engineers who build it. My background runs from enterprise
+              WordPress and AEM platforms to modern CI/CD on GitLab and Azure
+              DevOps, with ongoing hands-on work bringing AI tooling into real
+              engineering workflows.
             </p>
             <p>
               Day to day I lead as the <strong>technical lead</strong> across
