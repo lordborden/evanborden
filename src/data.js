@@ -9,7 +9,7 @@ export const SITE_DATA = {
   phone: "704.401.4864",
   linkedin: "https://www.linkedin.com/in/evan-borden/",
   tagline: "Hands-on engineering leader. Ships software, mentors people, and tinkers with game and AI projects on the side.",
-  manifesto: "Eighteen years writing code, six leading the people who write it. I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend my weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
+  manifesto: "Eighteen years writing code, seven leading the people who write it. I came up through WordPress themes and AEM modules, ship through GitLab and Azure DevOps, and still spend weekends on a personal Linux box wiring Claude up to a webhook so it can publish to my own CMS. The job is to make the team faster, the codebase calmer, and the client confident — in roughly that order.",
 
   experience: [
     {
