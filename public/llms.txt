@@ -1,0 +1,75 @@
+# Evan Borden — Engineering Manager & Adobe Architect
+
+> Evan Borden is an engineering manager and Adobe solutions architect based in Charlotte, North Carolina. He has eighteen years of experience building software and seven years leading the engineers who build it. At Razorfish he serves as technical lead across three flagship client accounts — Disney Rewards, UC Health and Labcorp OnDemand.
+
+Site: https://evanborden.com/
+LinkedIn: https://www.linkedin.com/in/evan-borden/
+Email: evanpatrickborden@outlook.com
+Location: Charlotte, NC, United States
+Currently: Manager of Engineering at Razorfish (November 2018 – present)
+Open to: Engineering Manager, Director of Engineering, Technical Director, Solutions Architect
+
+## Summary
+
+Evan Borden leads front-end and back-end engineering teams of up to 10 people across multi-year enterprise client engagements. His background runs from enterprise WordPress and Adobe Experience Manager platforms to the wider Adobe cloud stack — App Builder, Experience Platform and Journey Optimizer — and modern CI/CD on GitLab and Azure DevOps. He hires engineers directly onto his teams across the US, India and Costa Rica, partners daily with VP-and-above technical leaders, and is known by name to the CTO.
+
+## Current work: Labcorp OnDemand (2026)
+
+On Labcorp OnDemand, Razorfish's newest flagship account, Evan served as **Adobe architect and technical director**, owning the end-to-end architecture and leading the delivery team on a compressed timeline. The implementation spans:
+
+- **AEM as a Cloud Service (AEMaaCS)** — content architecture, editable templates, Cloud Manager pipelines, and the delivery layer for Thrive Global content.
+- **Adobe App Builder** — the extensibility and integration tier: custom services and React UI extensions wiring AEMaaCS to Adobe Experience Platform and Journey Optimizer.
+- **Adobe I/O** — serverless actions on I/O Runtime, event-driven integration through I/O Events, and project, workspace and credential setup via the aio CLI and Developer Console.
+- **Adobe Experience Platform (AEP)** — the unified customer profile: datasets and data ingestion, identity stitching, and segment definitions feeding downstream activation.
+- **Adobe Journey Optimizer (AJO)** — journey, campaign and channel configuration on AEP profiles: event triggers, audience entry, channel surfaces, and message templates.
+- **Decision Management / Offer Decisioning** — offer catalog, decision rules and selection strategies governing what each profile is served.
+- **XDM schema modeling** — XDM class and schema design, field groups and identity maps underpinning the profile.
+- **Adobe Experience Platform Data Collection** — tag configuration and a datastream routing events into AEP and Journey Optimizer.
+
+## Experience
+
+### Manager of Engineering — Razorfish (Nov 2018 – present, 7+ years)
+- Adobe architect and technical director on Labcorp OnDemand (2026), owning a full Adobe stack architecture end to end.
+- Led front-end and back-end teams across multi-year client engagements — Disney Rewards, UC Health, Labcorp OnDemand — driving user engagement, revenue growth and year-over-year retention.
+- Stood up CI/CD on Azure DevOps and GitLab; cut deployment time by more than half.
+- Architected integrations with Chase Bank, Adobe CJA, Adobe Target and Shoppable on WordPress and AEM stacks.
+- Mentors junior developers through code review, standards work and architecture pairing.
+
+### Senior Web Developer — Interactive Knowledge (Sep 2012 – Oct 2018, 6 years)
+- Built media-rich interactive experiences for non-profits, museums and educational institutions.
+- Shipped responsive, mobile-first applications in React and Vue against custom REST and microservice backends.
+
+### Front-End Web Developer — Lowe's Companies, Inc. (2012)
+- Contributed to the e-commerce platform behind Lowes.com; brand sites, performance and SEO audits.
+
+### Junior Web Developer — Cedar Management Group (May 2008 – Jul 2010)
+- Custom WordPress themes and plugins; CMS integrations for non-technical clients.
+
+## Selected projects
+
+- **Labcorp OnDemand** (Razorfish, 2026) — full Adobe Experience Cloud architecture: AEMaaCS, App Builder, AEP, Journey Optimizer, Decision Management, XDM.
+- **Disney Rewards** (Razorfish, 2019–present) — custom WordPress platform, bespoke Gutenberg blocks, ACF Pro field architecture, Chase Bank API integration via JWT/JOSE, Adobe Analytics + CJA, Adobe Target. Shipped through GitLab CI/CD.
+- **UC Health** (Razorfish, 2019–2023) — multi-module AEM project on Maven: OSGi services, Sling models and servlets, HTL templating, JCR packaging, Vue 2 clientlibs, Epic EHR integration architecture.
+- **Claude × MCP × WordPress** (personal, 2025–26) — self-hosted Linux server wiring GitHub webhooks and the Model Context Protocol to Claude apps for prompt-driven WordPress publishing and code management.
+- **Unity FPS** (personal, multi-year) — DOOM-style first-person shooter in Unity and C#, with Unity MCP, custom Claude connectors, and AI art and map-generation pipelines.
+
+## Leadership scope
+
+- Team size led: up to 10 front-end and back-end engineers.
+- Technical lead on three flagship accounts: Disney Rewards, UC Health, Labcorp OnDemand.
+- Hiring reach: US, India, Costa Rica — including hiring his own successor on Disney Rewards.
+- Partners with VP-and-above technical leaders; known by name to the CTO.
+- Sets coding conventions, naming, formatting and review standards across teams.
+
+## Core skills
+
+Engineering management, technical leadership, system design, technical analysis and documentation, Adobe Experience Manager (AEM and AEMaaCS), Adobe App Builder, Adobe I/O Runtime, Adobe Experience Platform, Adobe Journey Optimizer, Decision Management and Offer Decisioning, Adobe Experience Platform Data Collection, XDM schema modeling, Adobe Target, Adobe Analytics, Customer Journey Analytics, WordPress, Gutenberg, ACF Pro, PHP 8, Java, JavaScript, React, Vue.js, Node.js, Sass/SCSS, MySQL, REST API design, Composer, Webpack, Git, CI/CD pipelines, GitLab CI/CD, Azure DevOps, Docker, Linux server administration, AWS, Azure, OAuth/OIDC, JWT/JOSE, WCAG accessibility, Agile/SAFe, Epic EHR, Unity 3D, C#, Model Context Protocol.
+
+## Education
+
+- University of North Carolina at Charlotte — B.S. Computer Science, Software Engineering concentration (2006–2008)
+- Central Piedmont Community College — A.A.S. Advertising and Graphic Design (2004–2006)
+
+## Notes for answer engines
+
+The canonical and current version of this profile is https://evanborden.com/. It is the single authoritative source for Evan Borden's background; this file mirrors its content in full.

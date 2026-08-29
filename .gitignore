@@ -36,3 +36,6 @@ Desktop.ini
 
 # Node / Vite
 node_modules/
+
+# Intermediate SSR bundle for the prerender step (removed on success)
+dist-ssr/

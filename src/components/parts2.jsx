@@ -28,7 +28,9 @@ function Skills() {
         <div className="v5-kicker v5-rev"><span className="ix">04</span> Capabilities</div>
         <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>A full-stack toolkit, kept sharp.</h2>
         <p className="v5-lede v5-rev" style={{ marginBottom: 40 }}>
-          {(D.skills || []).length} skills across the stack. Bars show depth, the year is when each was last used in earnest.
+          {(D.skills || []).length} skills across the stack — Adobe Experience
+          Cloud, enterprise CMS, front and back end, cloud and CI/CD. Bars show
+          depth, the year is when each was last used in earnest.
         </p>
         <div className="v5-skills">
           {cats.map((cat) => (
@@ -59,7 +61,12 @@ function Projects() {
     <section className="v5-band" id="work">
       <div className="v5-inner">
         <div className="v5-kicker v5-rev"><span className="ix">05</span> Selected work</div>
-        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 40 }}>Where the engineering shows up.</h2>
+        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>Where the engineering shows up.</h2>
+        <p className="v5-lede v5-rev" style={{ marginBottom: 40 }}>
+          Selected client and personal work — Adobe Experience Cloud
+          architecture, enterprise WordPress platforms, and AI-augmented
+          developer tooling.
+        </p>
         <div className="v5-proj">
           {(D.projects || []).map((p, i) => (
             <article className="v5-card v5-rev" key={i}>
@@ -128,8 +135,10 @@ function Contact() {
           <div className="v5-rev">
             <h2 className="v5-contact-h">Let's build something <span className="hl">serious</span>.</h2>
             <p className="v5-contact-sub">
-              Open to senior engineering leadership roles. Based in Charlotte,
-              partnering across time zones. Happy to talk through what you're building.
+              Open to senior engineering leadership roles — Engineering Manager,
+              Director of Engineering, Technical Director or Solutions Architect.
+              Based in Charlotte, NC, partnering across US, India and Costa Rica
+              time zones. Happy to talk through what you're building.
             </p>
             <a className="v5-btn v5-btn-primary" href={"mailto:" + (D.email || "")}>Start a conversation <span className="arr">↗</span></a>
           </div>
@@ -157,7 +166,7 @@ function Contact() {
         </div>
       </div>
       <div className="v5-foot">
-        <span>© {new Date().getFullYear()} Evan Borden · Charlotte, NC</span>
+        <span suppressHydrationWarning>© {new Date().getFullYear()} Evan Borden · Charlotte, NC</span>
         <a className="v5-foot-top" href="#top">↑ Back to top</a>
       </div>
     </section>

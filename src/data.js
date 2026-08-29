@@ -8,8 +8,8 @@ export const SITE_DATA = {
   email: "evanpatrickborden@outlook.com",
   phone: "704.401.4864",
   linkedin: "https://www.linkedin.com/in/evan-borden/",
-  tagline: "Hands-on engineering leader. Ships software, mentors people, and tinkers with game and AI projects on the side.",
-  manifesto: "Eighteen years building software, seven of them leading the engineers who build it. My background runs from enterprise WordPress and AEM platforms to modern CI/CD on GitLab and Azure DevOps, with ongoing hands-on work bringing AI tooling into real engineering workflows. The priorities stay the same at every level: make the team faster, the codebase calmer, and the client confident.",
+  tagline: "Engineering manager and Adobe architect — 18 years building software, 7 leading the engineers who build it. Ships, mentors, and tinkers with game and AI projects on the side.",
+  manifesto: "I'm Evan Borden, an engineering manager and Adobe architect based in Charlotte, NC. Eighteen years building software, seven of them leading the engineers who build it. My background runs from enterprise WordPress and Adobe Experience Manager (AEM) platforms to the wider Adobe cloud stack — App Builder, Experience Platform and Journey Optimizer — and modern CI/CD on GitLab and Azure DevOps, with ongoing hands-on work bringing AI tooling into real engineering workflows. The priorities stay the same at every level: make the team faster, the codebase calmer, and the client confident.",
 
   experience: [
     {
@@ -19,7 +19,8 @@ export const SITE_DATA = {
       length: "7+ yrs",
       tag: "current",
       bullets: [
-        "Led front- and back-end teams across multi-year client engagements — Disney Rewards, UC Health, Labcorp — driving user engagement, revenue growth and YoY retention.",
+        "Adobe architect and technical director on Labcorp OnDemand (2026), owning a full Adobe stack architecture end to end: AEM as a Cloud Service, App Builder, Adobe Experience Platform and Adobe Journey Optimizer, built on Thrive Global content.",
+        "Led front- and back-end teams across multi-year client engagements — Disney Rewards, UC Health, Labcorp OnDemand — driving user engagement, revenue growth and YoY retention.",
         "Stood up CI/CD on Azure DevOps and GitLab; cut deployment time by more than half.",
         "Architected integrations with Chase Bank, Adobe CJA, Adobe Target and Shoppable on top of WordPress and AEM stacks.",
         "Mentored junior devs through code review, standards work and architecture pairing.",
@@ -71,20 +72,22 @@ export const SITE_DATA = {
   skills: [
     { cat: "Cloud & Infrastructure", skill: "AWS", rating: 3, year: 2026, notes: "Personal projects (multi-year) — VM (EC2) provisioning, security groups, networking, DNS / Route 53, domain management, cost monitoring." },
     { cat: "Cloud & Infrastructure", skill: "Azure", rating: 3, year: 2026, notes: "Personal projects (multi-year) — VM provisioning, network security groups, DNS, domain management, cost analysis." },
+    { cat: "Cloud & Infrastructure", skill: "Adobe App Builder", rating: 3, year: 2026, notes: "Labcorp OnDemand — designed the extensibility and integration tier: custom services and React UI extensions wiring AEMaaCS to Adobe Experience Platform and Journey Optimizer." },
+    { cat: "Cloud & Infrastructure", skill: "Adobe I/O (Runtime, Events, CLI)", rating: 3, year: 2026, notes: "Labcorp OnDemand — serverless actions on I/O Runtime, event-driven integration through I/O Events, and project, workspace and credential setup via the aio CLI and Developer Console." },
     { cat: "Cloud & Infrastructure", skill: "Docker", rating: 3, year: 2026, notes: "Disney Rewards local environment running WordPress; comfortable with commands, configs, and compose flows." },
     { cat: "Cloud & Infrastructure", skill: "Linux Server Administration", rating: 4, year: 2026, notes: "Personal projects (multi-year) — SSH, Apache and Nginx, filesystem permissions, user/group management, service configuration. Also recommended optimization for UC Health on-prem AEM." },
     { cat: "CMS / DAM", skill: "WordPress", rating: 4, year: 2026, notes: "Disney Rewards — custom theme & plugins; REST API extension, hooks/filters, custom post types and taxonomies, WP-CLI, sanitization patterns." },
-    { cat: "CMS / DAM", skill: "Adobe Experience Manager (AEM)", rating: 3, year: 2023, notes: "UC Health — multi-module Maven project. OSGi services, Sling models and servlets, HTL templating, JCR content packaging, Touch UI dialogs." },
+    { cat: "CMS / DAM", skill: "Adobe Experience Manager (AEM)", rating: 3, year: 2026, notes: "Labcorp OnDemand — AEM as a Cloud Service: content architecture, editable templates, Cloud Manager pipelines, and the delivery layer for Thrive Global content. UC Health — multi-module Maven project. OSGi services, Sling models and servlets, HTL templating, JCR content packaging, Touch UI dialogs." },
     { cat: "CMS / DAM", skill: "Gutenberg / Block Editor", rating: 3, year: 2026, notes: "Disney Rewards — block.json, @wordpress/scripts, Interactivity API." },
     { cat: "CMS / DAM", skill: "ACF Pro", rating: 4, year: 2025, notes: "Disney Rewards — field groups, options pages, ACF blocks." },
     { cat: "Frontend", skill: "JavaScript", rating: 4, year: 2026, notes: "Used continuously across every client engagement and personal project — modern ES2022+, async/await, modules, DOM/Fetch APIs. Also the lingua franca of my hobby work: Linux server tooling, MCP integration, build scripts, and Unity-adjacent prototyping." },
-    { cat: "Frontend", skill: "React", rating: 3, year: 2026, notes: "Disney Rewards — Gutenberg block editor; hobby projects and experiments." },
+    { cat: "Frontend", skill: "React", rating: 3, year: 2026, notes: "Labcorp OnDemand — React UI extensions on Adobe App Builder. Disney Rewards — Gutenberg block editor; hobby projects and experiments." },
     { cat: "Frontend", skill: "Vue.js", rating: 3, year: 2023, notes: "UC Health — Vue 2 in AEM clientlibs; Vue 3 experimentation across projects." },
     { cat: "Frontend", skill: "Node.js", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — front-end build tooling runtime." },
     { cat: "Frontend", skill: "Sass / SCSS", rating: 4, year: 2026, notes: "Disney Rewards and UC Health — theme and clientlib styles." },
     { cat: "Backend", skill: "PHP", rating: 4, year: 2026, notes: "Disney Rewards & non-professional projects — PHP 8.2, strict types, PSR-12." },
-    { cat: "Backend", skill: "Java", rating: 3, year: 2023, notes: "UC Health — OSGi components, Sling Models, servlets." },
-    { cat: "Backend", skill: "REST API Design", rating: 3, year: 2023, notes: "UC Health — Sling servlet JSON endpoints." },
+    { cat: "Backend", skill: "Java", rating: 3, year: 2026, notes: "Labcorp OnDemand — AEM as a Cloud Service: OSGi bundles and Sling models behind the Thrive Global content delivery layer. UC Health — OSGi components, Sling Models, servlets." },
+    { cat: "Backend", skill: "REST API Design", rating: 3, year: 2026, notes: "Labcorp OnDemand — API contracts across the stack: App Builder serverless actions as REST endpoints, AEP ingestion and segment APIs, AJO journey triggers. UC Health — Sling servlet JSON endpoints." },
     { cat: "Backend", skill: "MySQL / SQL", rating: 3, year: 2026, notes: "Disney Rewards — custom WP tables, prepared statements via $wpdb, schema design. Comfortable with MySQL/MariaDB tooling." },
     { cat: "Backend", skill: "Composer", rating: 4, year: 2026, notes: "Disney Rewards — PHP dependency management." },
     { cat: "DevOps & Tooling", skill: "Webpack", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — custom multi-config builds." },
@@ -92,6 +95,11 @@ export const SITE_DATA = {
     { cat: "DevOps & Tooling", skill: "CI/CD Pipelines", rating: 2, year: 2026, notes: "Disney Rewards — ship through GitLab CI/CD; can use and extend existing pipelines." },
     { cat: "DevOps & Tooling", skill: "Postman", rating: 3, year: 2023, notes: "UC Health — API collections for Sling servlets." },
     { cat: "Data & Analytics", skill: "Adobe Analytics", rating: 3, year: 2026, notes: "Disney Rewards (with CJA) and UC Health — Adobe Analytics tagging and data layer via Adobe Launch." },
+    { cat: "Data & Analytics", skill: "XDM / Schema Modeling", rating: 3, year: 2026, notes: "Labcorp OnDemand — XDM class and schema design, field groups and identity maps underpinning the AEP profile, Journey Optimizer and Data Collection." },
+    { cat: "Data & Analytics", skill: "Adobe Experience Platform Data Collection", rating: 3, year: 2026, notes: "Labcorp OnDemand — Data Collection setup: tag configuration and a datastream routing events into AEP and Journey Optimizer. Formerly Adobe Launch — tagging and data layer work on Disney Rewards and UC Health." },
+    { cat: "CDP & Personalization", skill: "Adobe Experience Platform (AEP)", rating: 3, year: 2026, notes: "Labcorp OnDemand — architected the unified profile: datasets and data ingestion, identity stitching, and segment definitions feeding downstream activation." },
+    { cat: "CDP & Personalization", skill: "Adobe Journey Optimizer (AJO)", rating: 3, year: 2026, notes: "Labcorp OnDemand — journey, campaign and channel configuration on AEP profiles: event triggers, audience entry, channel surfaces, and message templates built from Thrive Global content." },
+    { cat: "CDP & Personalization", skill: "Decision Management (Offer Decisioning)", rating: 3, year: 2026, notes: "Labcorp OnDemand — offer catalog, decision rules and selection strategies governing what each profile is served through Journey Optimizer." },
     { cat: "CDP & Personalization", skill: "Adobe Target", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — at.js anti-flicker, mbox tracking." },
     { cat: "AI & Machine Learning", skill: "Prompt Engineering", rating: 2, year: 2026, notes: "Personal use of local AI tooling (LM Studio and similar) for experimentation; no production AI integrations." },
     { cat: "AI & Machine Learning", skill: "LLM Integration", rating: 3, year: 2026, notes: "Personal hobby — Linux server with custom Nginx, MCP and GitHub webhook integration to Claude apps to power prompt-driven website creation, automated code management, WP REST API publishing." },
@@ -99,7 +107,7 @@ export const SITE_DATA = {
     { cat: "Security & Compliance", skill: "OAuth / OIDC", rating: 3, year: 2026, notes: "Disney Rewards — Chase API token lifecycle in the Chase WP Connect plugin." },
     { cat: "Security & Compliance", skill: "JWT / JOSE", rating: 4, year: 2026, notes: "Disney Rewards — JWS/JWE with web-token/jwt-framework and phpseclib3." },
     { cat: "Architecture", skill: "Agile / SAFe", rating: 3, year: 2026, notes: "Disney Rewards and UC Health — Jira/Azure DevOps, merge requests, release branches." },
-    { cat: "Architecture", skill: "System Design", rating: 3, year: 2026, notes: "Disney Rewards, UC Health and Labcorp — architecture analysis, research, and proposals at the application and integration layer." },
+    { cat: "Architecture", skill: "System Design", rating: 3, year: 2026, notes: "Labcorp OnDemand — owned the end-to-end Adobe architecture across AEMaaCS, App Builder, AEP and AJO. Disney Rewards and UC Health — architecture analysis, research, and proposals at the application and integration layer." },
     { cat: "Architecture", skill: "Technical Analysis & Documentation", rating: 4, year: 2026, notes: "Architecture analysis and research, technical strategy, diagrams and flowcharts, technical documentation." },
     { cat: "Healthcare", skill: "Epic EHR", rating: 2, year: 2023, notes: "UC Health — managed the integration; architecture-level familiarity." },
     { cat: "Game Dev / Hobby", skill: "C#", rating: 3, year: 2026, notes: "Personal Unity 3D game development — primary scripting language for multi-year hobby projects." },
@@ -109,6 +117,12 @@ export const SITE_DATA = {
 
   projects: [
     {
+      title: "Labcorp OnDemand",
+      kind: "Razorfish · 2026",
+      blurb: "Adobe architect and technical director for a full Adobe stack build: AEM as a Cloud Service for authoring and delivery, App Builder for the custom integration and services layer, Adobe Experience Platform for the unified profile, and Adobe Journey Optimizer for lifecycle messaging and offer decisioning — all running on Thrive Global content. Owned the architecture end to end, from XDM schemas and Data Collection through to the decision rules, and led the team that shipped it on a compressed timeline.",
+      stack: ["AEMaaCS", "Adobe App Builder", "Adobe Experience Platform", "Adobe Journey Optimizer", "Decision Management", "XDM"],
+    },
+    {
       title: "Disney Rewards",
       kind: "Razorfish · 2019–present",
       blurb: "Custom WordPress platform with bespoke Gutenberg blocks, ACF Pro field architecture, Chase Bank API integration via JWT/JOSE, Adobe Analytics + CJA tagging, and Adobe Target personalization. Shipped through GitLab CI/CD.",
@@ -117,7 +131,7 @@ export const SITE_DATA = {
     {
       title: "UC Health",
       kind: "Razorfish · 2019–2023",
-      blurb: "Multi-module AEM (Adobe Experience Manager) project on a Maven build — OSGi services, Sling models and servlets, HTL templating, JCR packaging. Vue 2 in AEM clientlibs. Epic EHR integration architecture.",
+      blurb: "Multi-module Adobe Experience Manager (AEM) project on a Maven build — OSGi services, Sling models and servlets, HTL templating, JCR packaging. Vue 2 in AEM clientlibs. Epic EHR integration architecture for a large healthcare system.",
       stack: ["AEM", "Java", "Sling", "Vue 2", "Maven"],
     },
     {
@@ -146,15 +160,15 @@ export const SITE_DATA = {
 
   // Leadership scope — verified facts only (v3 "Leadership" waypoint).
   leadership: {
-    intro: "Manager of Engineering is the title — but day to day I lead as the technical lead across major client accounts: setting the engineering bar, placing the right people on the work, and getting their contributions seen.",
+    intro: "Manager of Engineering is the title — day to day I work as technical lead and technical director across major client accounts: setting the engineering bar, placing the right people on the work, and getting their contributions seen.",
     scope: [
       { v: "Up to 10", k: "Team size led", note: "front- & back-end engineers" },
-      { v: "Three", k: "Tech-lead accounts", note: "Disney Rewards · UC Health · Labcorp" },
+      { v: "Three", k: "Tech-lead accounts", note: "Disney Rewards · UC Health · Labcorp OnDemand" },
       { v: "Global", k: "Hiring reach", note: "US · India · Costa Rica" },
       { v: "VP+ / CTO", k: "Partners with", note: "on a first-name basis" },
     ],
     facets: [
-      { title: "Technical leadership", body: "Tech lead across three flagship accounts — Disney Rewards, UC Health, and Labcorp (newest in 2026) — owning architecture direction and the quality bar for each engagement." },
+      { title: "Technical leadership", body: "Tech lead across three flagship accounts — Disney Rewards, UC Health, and Labcorp OnDemand (newest in 2026) — owning architecture direction and the quality bar for each engagement. On Labcorp OnDemand I served as Adobe architect and technical director, owning the full stack architecture end to end." },
       { title: "Hiring & staffing", body: "Interview and place engineers for technical roles directly onto my teams — including hiring my own successor on Disney Rewards. Help shape the right resource mix on an account and manage tech hiring across India and Costa Rica." },
       { title: "Advocacy & growth", body: "Champion strong work where it counts — surfacing engineers' contributions to leadership and making the case for their promotions." },
       { title: "Executive collaboration", body: "Partner daily with VP+ technical leaders, and known by name to the CTO — translating engineering reality into decisions the business can act on." },

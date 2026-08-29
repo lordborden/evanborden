@@ -65,12 +65,13 @@ function Hero() {
       </div>
 
       <div className="v5-right">
-        <span className="v5-eyebrow"><span className="dot" />Available · Senior engineering leadership</span>
+        <span className="v5-eyebrow"><span className="dot" />Available · Engineering leadership &amp; Adobe architecture</span>
         <h1 className="v5-name" data-px-name>Evan<br />Borden</h1>
         <div className="v5-role">Manager of Engineering <b>· Razorfish · Charlotte, NC</b></div>
         <p className="v5-tag">
-          Hands-on engineering leader. Ships software, grows the people who
-          write it, and keeps the codebase calm and the client confident.
+          Engineering manager and Adobe architect — 18 years building software,
+          7 leading the engineers who build it. I ship, I mentor, and I keep the
+          codebase calm and the client confident.
         </p>
         <div className="v5-cta-row">
           <a className="v5-btn v5-btn-primary" href="#work">View the work <span className="arr">↗</span></a>
@@ -91,7 +92,8 @@ function Hero() {
 }
 
 const TECH = [
-  "WordPress", "PHP 8", "AEM", "React", "Vue", "Node", "JWT / JOSE",
+  "WordPress", "PHP 8", "AEMaaCS", "Adobe App Builder", "Adobe I/O Runtime",
+  "Adobe Experience Platform", "Adobe Journey Optimizer", "React", "Vue", "Node", "JWT / JOSE",
   "Adobe CJA", "Adobe Target", "Azure DevOps", "GitLab CI/CD", "Docker",
   "Linux", "Unity · C#", "MCP", "Epic EHR", "Chase API",
 ];
@@ -119,9 +121,12 @@ function About() {
         <div className="v5-about-grid">
           <div className="v5-about-body v5-rev">
             <p>
-              Eighteen years building software, seven of them leading the
-              engineers who build it. My background runs from enterprise
-              WordPress and AEM platforms to modern CI/CD on GitLab and Azure
+              I'm Evan Borden, an engineering manager and Adobe architect based
+              in Charlotte, NC. Eighteen years building software, seven of them
+              leading the engineers who build it. My background runs from
+              enterprise WordPress and Adobe Experience Manager (AEM) platforms
+              to the wider Adobe cloud stack — App Builder, Experience Platform
+              and Journey Optimizer — and modern CI/CD on GitLab and Azure
               DevOps, with ongoing hands-on work bringing AI tooling into real
               engineering workflows.
             </p>
@@ -152,7 +157,12 @@ function Experience() {
     <section className="v5-band alt" id="experience">
       <div className="v5-inner">
         <div className="v5-kicker v5-rev"><span className="ix">02</span> Experience</div>
-        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 48 }}>A career built shipping the hard parts.</h2>
+        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>A career built shipping the hard parts.</h2>
+        <p className="v5-lede v5-rev" style={{ marginBottom: 48 }}>
+          Eighteen years across enterprise CMS platforms, Adobe Experience Cloud
+          and cloud infrastructure — seven of them as an engineering manager and
+          technical lead at Razorfish.
+        </p>
         <div className="v5-xp">
           {exp.map((e, i) => (
             <article className="v5-xp-row v5-rev" key={i}>
@@ -164,7 +174,7 @@ function Experience() {
                   {e.tag ? <span className="v5-xp-tag">{e.tag}</span> : null}
                 </div>
                 <ul className="v5-xp-bullets">
-                  {e.bullets.slice(0, 3).map((b, j) => <li key={j}>{tidy(b)}</li>)}
+                  {e.bullets.slice(0, 4).map((b, j) => <li key={j}>{tidy(b)}</li>)}
                 </ul>
               </div>
             </article>
