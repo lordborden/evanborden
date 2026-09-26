@@ -7,10 +7,10 @@ const tidy = V5_tidy;
 const tidyRange = (s) => (typeof s === "string" ? s.replace(/\s*—\s*/g, " – ") : s);
 
 const CAT_ORDER = [
-  "Architecture", "Frontend", "Backend", "CMS / DAM", "Cloud & Infrastructure",
+  "Leadership & Delivery", "Architecture", "Frontend", "Backend", "CMS / DAM", "Cloud & Infrastructure",
   "DevOps & Tooling", "Data & Analytics", "CDP & Personalization",
   "Security & Compliance", "AI & Machine Learning", "Testing & QA",
-  "Healthcare", "Game Dev / Hobby",
+  "Healthcare",
 ];
 
 function Skills() {
@@ -20,34 +20,26 @@ function Skills() {
     const ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
   });
-  cats.forEach((c) => groups[c].sort((a, b) => b.rating - a.rating));
 
   return (
     <section className="v5-band alt" id="skills">
       <div className="v5-inner">
         <div className="v5-kicker v5-rev"><span className="ix">04</span> Capabilities</div>
-        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>A full-stack toolkit, kept sharp.</h2>
+        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>Leadership, architecture and the hands-on stack.</h2>
         <p className="v5-lede v5-rev" style={{ marginBottom: 40 }}>
-          {(D.skills || []).length} skills across the stack — Adobe Experience
-          Cloud, enterprise CMS, front and back end, cloud and CI/CD. Bars show
-          depth, the year is when each was last used in earnest.
+          If it's listed here, I know it well and use it in real work — from
+          hiring, resourcing and architecture governance to Adobe Experience
+          Cloud, enterprise CMS, front and back end, cloud and CI/CD.
         </p>
         <div className="v5-skills">
           {cats.map((cat) => (
             <div className="v5-skcat v5-rev" key={cat}>
               <div className="v5-skcat-h">
                 <span className="v5-skcat-name">{cat}</span>
-                <span className="v5-skcat-ct">{String(groups[cat].length).padStart(2, "0")}</span>
               </div>
-              {groups[cat].map((s, i) => (
-                <div className="v5-skrow" key={i}>
-                  <span className="v5-sk-name">{s.skill}</span>
-                  <span className="v5-sk-meter">
-                    {[1, 2, 3, 4].map((n) => <span key={n} className={"v5-sk-pip" + (n <= s.rating ? " on" : "")} />)}
-                    <span className="v5-sk-yr">'{String(s.year).slice(2)}</span>
-                  </span>
-                </div>
-              ))}
+              <div className="v5-sk-list">
+                {groups[cat].map((s, i) => <span className="v5-sk-chip" key={i}>{s.skill}</span>)}
+              </div>
             </div>
           ))}
         </div>
@@ -63,9 +55,8 @@ function Projects() {
         <div className="v5-kicker v5-rev"><span className="ix">05</span> Selected work</div>
         <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>Where the engineering shows up.</h2>
         <p className="v5-lede v5-rev" style={{ marginBottom: 40 }}>
-          Selected client and personal work — Adobe Experience Cloud
-          architecture, enterprise WordPress platforms, and AI-augmented
-          developer tooling.
+          Selected client work — Adobe Experience Cloud architecture for
+          healthcare, and enterprise WordPress platforms.
         </p>
         <div className="v5-proj">
           {(D.projects || []).map((p, i) => (
@@ -110,6 +101,18 @@ function References() {
 
         <div className="v5-rev" style={{ marginTop: 44 }}>
           <div className="v5-kicker"><span className="ix">07</span> Off the clock</div>
+          <div className="v5-proj" style={{ marginBottom: 28 }}>
+            {(D.sideProjects || []).map((p, i) => (
+              <article className="v5-card" key={i}>
+                <div className="v5-card-kind">{p.kind}</div>
+                <h3 className="v5-card-title">{p.title}</h3>
+                <p className="v5-card-blurb">{tidy(p.blurb)}</p>
+                <div className="v5-card-stack">
+                  {p.stack.map((t, j) => <span className="v5-chip" key={j}>{t}</span>)}
+                </div>
+              </article>
+            ))}
+          </div>
           <div className="v5-otc">
             {(D.hobbies || []).map((h, i) => (
               <span className="v5-otc-item" key={i}><span className="sq" /><b>{h.name}</b> · {h.tag}</span>

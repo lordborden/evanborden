@@ -38,13 +38,6 @@ function Nav({ active }) {
   );
 }
 
-const STATS = [
-  { v: "18", u: "yrs", k: "In software" },
-  { v: "7", u: "yrs", k: "Leading teams" },
-  { v: "3", k: "Flagship accts" },
-  { v: "10", k: "Engineers led" },
-];
-
 function Hero() {
   return (
     <header className="v5-hero" id="top">
@@ -65,25 +58,16 @@ function Hero() {
       </div>
 
       <div className="v5-right">
-        <span className="v5-eyebrow"><span className="dot" />Available · Engineering leadership &amp; Adobe architecture</span>
+        <span className="v5-eyebrow"><span className="dot" />Available · Engineering management &amp; Adobe architecture</span>
         <h1 className="v5-name" data-px-name>Evan<br />Borden</h1>
         <div className="v5-role">Manager of Engineering <b>· Razorfish · Charlotte, NC</b></div>
         <p className="v5-tag">
-          Engineering manager and Adobe architect — 18 years building software,
-          7 leading the engineers who build it. I ship, I mentor, and I keep the
-          codebase calm and the client confident.
+          Engineering manager and Adobe architect, leading client teams at a
+          martech agency, with a focus on Adobe Experience Cloud in healthcare.
         </p>
         <div className="v5-cta-row">
           <a className="v5-btn v5-btn-primary" href="#work">View the work <span className="arr">↗</span></a>
           <a className="v5-btn v5-btn-ghost" href={"mailto:" + (D.email || "")}>Start a conversation</a>
-        </div>
-        <div className="v5-stats">
-          {STATS.map((s, i) => (
-            <div className="v5-stat" key={i}>
-              <div className="v5-stat-v">{s.v}{s.u && <span className="u">{s.u}</span>}</div>
-              <div className="v5-stat-k">{s.k}</div>
-            </div>
-          ))}
         </div>
       </div>
       <div className="v5-scrollcue"><span>scroll</span><span className="bar" /></div>
@@ -92,10 +76,11 @@ function Hero() {
 }
 
 const TECH = [
-  "WordPress", "PHP 8", "AEMaaCS", "Adobe App Builder", "Adobe I/O Runtime",
-  "Adobe Experience Platform", "Adobe Journey Optimizer", "React", "Vue", "Node", "JWT / JOSE",
-  "Adobe CJA", "Adobe Target", "Azure DevOps", "GitLab CI/CD", "Docker",
-  "Linux", "Unity · C#", "MCP", "Epic EHR", "Chase API",
+  "AEMaaCS", "AEM 6.5", "Adobe App Builder", "Adobe I/O Runtime",
+  "Adobe Experience Platform", "Adobe Journey Optimizer", "Offer Decisioning",
+  "Adobe Target", "Adobe CJA", "HIPAA", "Epic EHR", "React", "Vue", "Node",
+  "WordPress", "PHP 8", "Azure DevOps", "GitLab CI/CD", "Docker", "Linux",
+  "Claude · ChatGPT", "Jira · Confluence",
 ];
 function Marquee() {
   const row = (
@@ -116,33 +101,29 @@ function About() {
       <div className="v5-inner">
         <div className="v5-kicker v5-rev"><span className="ix">01</span> Profile</div>
         <h2 className="v5-about-statement v5-rev">
-          I make teams <span className="hl">faster</span>, codebases <span className="hl">calmer</span>, and clients <span className="hl">confident</span>.
+          I build the <span className="hl">team</span>, own the <span className="hl">architecture</span>, and get it into <span className="hl">production</span>.
         </h2>
         <div className="v5-about-grid">
           <div className="v5-about-body v5-rev">
             <p>
-              I'm Evan Borden, an engineering manager and Adobe architect based
-              in Charlotte, NC. Eighteen years building software, seven of them
-              leading the engineers who build it. My background runs from
-              enterprise WordPress and Adobe Experience Manager (AEM) platforms
-              to the wider Adobe cloud stack — App Builder, Experience Platform
-              and Journey Optimizer — and modern CI/CD on GitLab and Azure
-              DevOps, with ongoing hands-on work bringing AI tooling into real
-              engineering workflows.
+              I'm Evan Borden, Manager of Engineering at Razorfish, a martech
+              agency, based in Charlotte, NC. I lead the <strong>people and the
+              plan</strong> behind client teams — hiring, staffing and resourcing
+              development and QA engineers across the US, India and Costa Rica —
+              and own the <strong>architecture</strong> those teams build, most
+              recently Adobe Experience Platform and Journey Optimizer work in
+              healthcare under HIPAA.
             </p>
             <p>
-              Day to day I lead as the <strong>technical lead</strong> across
-              major client accounts: setting the engineering bar, placing the
-              right people on the work, and getting their contributions seen.
-              Based in <strong>Charlotte, NC</strong>, I partner with VP+
-              technical leaders and translate engineering reality into
-              decisions the business can act on.
+              Underneath that is a hands-on engineering background, from
+              enterprise WordPress and Adobe Experience Manager to the wider
+              Adobe cloud stack, and I use AI tooling in my own day-to-day work.
             </p>
           </div>
           <div className="v5-facts v5-rev">
-            <div className="v5-fact"><div className="v5-fact-k">Current</div><div className="v5-fact-v"><span className="hl">Mgr, Engineering</span> · Razorfish</div></div>
+            <div className="v5-fact"><div className="v5-fact-k">Current</div><div className="v5-fact-v"><span className="hl">Manager of Engineering</span> · Razorfish</div></div>
             <div className="v5-fact"><div className="v5-fact-k">Based in</div><div className="v5-fact-v">Charlotte, NC</div></div>
-            <div className="v5-fact"><div className="v5-fact-k">Focus</div><div className="v5-fact-v">Web · CMS · Integrations</div></div>
+            <div className="v5-fact"><div className="v5-fact-k">Focus</div><div className="v5-fact-v">Teams · Architecture · Delivery</div></div>
             <div className="v5-fact"><div className="v5-fact-k">Hiring reach</div><div className="v5-fact-v">US · India · Costa Rica</div></div>
           </div>
         </div>
@@ -159,14 +140,14 @@ function Experience() {
         <div className="v5-kicker v5-rev"><span className="ix">02</span> Experience</div>
         <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>A career built shipping the hard parts.</h2>
         <p className="v5-lede v5-rev" style={{ marginBottom: 48 }}>
-          Eighteen years across enterprise CMS platforms, Adobe Experience Cloud
-          and cloud infrastructure — seven of them as an engineering manager and
-          technical lead at Razorfish.
+          Managing engineering teams at Razorfish, built on years of shipping
+          interactive work at Interactive Knowledge — from
+          hands-on code to staffing, architecture governance and delivery.
         </p>
         <div className="v5-xp">
           {exp.map((e, i) => (
             <article className="v5-xp-row v5-rev" key={i}>
-              <div className="v5-xp-period">{tidyRange(e.period)}<span className="len">{e.length}</span></div>
+              <div className="v5-xp-period">{tidyRange(e.period)}</div>
               <div>
                 <div className="v5-xp-head">
                   <h3 className="v5-xp-role">{e.role}</h3>
@@ -174,7 +155,7 @@ function Experience() {
                   {e.tag ? <span className="v5-xp-tag">{e.tag}</span> : null}
                 </div>
                 <ul className="v5-xp-bullets">
-                  {e.bullets.slice(0, 4).map((b, j) => <li key={j}>{tidy(b)}</li>)}
+                  {e.bullets.map((b, j) => <li key={j}>{tidy(b)}</li>)}
                 </ul>
               </div>
             </article>
@@ -186,24 +167,15 @@ function Experience() {
 }
 
 function Leadership() {
-  const L = D.leadership || { scope: [], facets: [] };
+  const L = D.leadership || { facets: [] };
   return (
     <section className="v5-band" id="leadership">
       <div className="v5-inner">
         <div className="v5-kicker v5-rev"><span className="ix">03</span> Leadership</div>
         <div className="v5-lead-top">
           <div className="v5-rev">
-            <h2 className="v5-h2">More than a title. A technical lead.</h2>
+            <h2 className="v5-h2">People, plan and architecture.</h2>
             <p className="v5-lede" style={{ marginTop: 20 }}>{tidy(L.intro)}</p>
-          </div>
-          <div className="v5-scope v5-rev">
-            {(L.scope || []).map((s, i) => (
-              <div className="v5-scope-cell" key={i}>
-                <div className="v5-scope-v">{s.v}</div>
-                <div className="v5-scope-k">{s.k}</div>
-                <div className="v5-scope-note">{tidy(s.note)}</div>
-              </div>
-            ))}
           </div>
         </div>
         <div className="v5-facets v5-rev">

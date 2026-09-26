@@ -1,6 +1,6 @@
 # Evan Borden — Engineering Manager & Adobe Architect
 
-> Evan Borden is an engineering manager and Adobe solutions architect based in Charlotte, North Carolina. He has eighteen years of experience building software and seven years leading the engineers who build it. At Razorfish he serves as technical lead across three flagship client accounts — Disney Rewards, UC Health and Labcorp OnDemand.
+> Evan Borden is an engineering manager and Adobe solutions architect based in Charlotte, North Carolina. At Razorfish, a martech agency, he manages engineering staffing, hiring and resource planning, and serves as technical lead and architect across flagship client accounts — Disney Rewards, UC Health and Labcorp. He was Tech Lead on Disney Rewards from 2022 until the GVP of Technology and CTO at the time entrusted him with leading Labcorp, which he still leads. He delivered both of his 2026 Labcorp projects into production, which led to retainer work through the end of 2026, with the potential for more in 2027.
 
 Site: https://www.evanborden.com/
 LinkedIn: https://www.linkedin.com/in/evan-borden/
@@ -11,59 +11,79 @@ Open to: Engineering Manager, Director of Engineering, Technical Director, Solut
 
 ## Summary
 
-Evan Borden leads front-end and back-end engineering teams of up to 10 people across multi-year enterprise client engagements. His background runs from enterprise WordPress and Adobe Experience Manager platforms to the wider Adobe cloud stack — App Builder, Experience Platform and Journey Optimizer — and modern CI/CD on GitLab and Azure DevOps. He hires engineers directly onto his teams across the US, India and Costa Rica, partners daily with VP-and-above technical leaders, and is known by name to the CTO.
+Evan Borden leads front-end, back-end and QA engineering teams across multi-year enterprise client engagements. His background runs from enterprise WordPress and Adobe Experience Manager platforms to the wider Adobe cloud stack — App Builder, Experience Platform and Journey Optimizer — and modern CI/CD on GitLab and Azure DevOps. He interviews and hires development and QA engineers across experience levels, works with staffing leads to source talent in India and Costa Rica, plans resource dates, rates and margin with project managers, takes architecture through client architecture review boards, and reviews every data path for security and PHI exposure under HIPAA. He partners daily with VP-and-above technical leaders, and was entrusted with leading the Labcorp account by the GVP of Technology and CTO at the time.
 
-## Current work: Labcorp OnDemand (2026)
+## Current work: Labcorp (2026)
 
-On Labcorp OnDemand, Razorfish's newest flagship account, Evan served as **Adobe architect and technical director**, owning the end-to-end architecture and leading the delivery team on a compressed timeline. The implementation spans:
+Evan delivered both of his 2026 Labcorp projects into production: **Marker by Labcorp** and **Thrive 5 Personalization**. On both he served as **Adobe Architect and Tech Lead**. That success turned into retainer work through the end of 2026, with the potential for more in 2027.
 
-- **AEM as a Cloud Service (AEMaaCS)** — content architecture, editable templates, Cloud Manager pipelines, and the delivery layer for Thrive Global content.
-- **Adobe App Builder** — the extensibility and integration tier: custom services and React UI extensions wiring AEMaaCS to Adobe Experience Platform and Journey Optimizer.
-- **Adobe I/O** — serverless actions on I/O Runtime, event-driven integration through I/O Events, and project, workspace and credential setup via the aio CLI and Developer Console.
-- **Adobe Experience Platform (AEP)** — the unified customer profile: datasets and data ingestion, identity stitching, and segment definitions feeding downstream activation.
-- **Adobe Journey Optimizer (AJO)** — journey, campaign and channel configuration on AEP profiles: event triggers, audience entry, channel surfaces, and message templates.
+### Marker by Labcorp
+
+Adobe Architect and Tech Lead on a media-driven landing page for a custom Labcorp product, delivered on a tight timeline. Evan led the technical implementation and the team building custom AEM as a Cloud Service components across the back end and front end. He stayed on camera with the client at every step, ran ticket management, and worked hand in hand with the project manager to get it live.
+
+### Thrive 5 Personalization
+
+Evan owned the solution architecture for a personalization program spanning AEM as a Cloud Service, Adobe App Builder, Adobe Experience Platform and Adobe Journey Optimizer, feeding a downstream proprietary Patient Portal that must stay HIPAA-compliant. His team built the App Builder and AEP/AJO layers; AEM and the Patient Portal were delivered by partner teams, and the work required close coordination across those teams and with the client.
+
+- **Solution architecture** — end-to-end design across AEMaaCS, App Builder, AEP/AJO and the Patient Portal, taken through the client's architecture review board, with every data path reviewed for PHI exposure under HIPAA.
+- **Adobe App Builder** (built by his team) — the integration tier: custom services and React UI extensions connecting AEM, AEP/AJO and the Patient Portal.
+- **Adobe I/O** (built by his team) — serverless actions on I/O Runtime, event-driven integration through I/O Events, and project, workspace and credential setup via the aio CLI and Developer Console.
+- **Adobe Experience Platform (AEP)** (built by his team) — the unified customer profile: datasets and data ingestion, identity stitching, and segment definitions feeding downstream activation.
+- **Adobe Journey Optimizer (AJO)** (built by his team) — journey, campaign and channel configuration on AEP profiles: event triggers, audience entry, channel surfaces, and message templates.
 - **Decision Management / Offer Decisioning** — offer catalog, decision rules and selection strategies governing what each profile is served.
 - **XDM schema modeling** — XDM class and schema design, field groups and identity maps underpinning the profile.
-- **Adobe Experience Platform Data Collection** — tag configuration and a datastream routing events into AEP and Journey Optimizer.
+- **AEM as a Cloud Service** — architected its role in the solution and its integration points; built by a partner team.
 
 ## Experience
 
-### Manager of Engineering — Razorfish (Nov 2018 – present, 7+ years)
-- Adobe architect and technical director on Labcorp OnDemand (2026), owning a full Adobe stack architecture end to end.
-- Led front-end and back-end teams across multi-year client engagements — Disney Rewards, UC Health, Labcorp OnDemand — driving user engagement, revenue growth and year-over-year retention.
-- Stood up CI/CD on Azure DevOps and GitLab; cut deployment time by more than half.
-- Architected integrations with Chase Bank, Adobe CJA, Adobe Target and Shoppable on WordPress and AEM stacks.
-- Mentors junior developers through code review, standards work and architecture pairing.
+### Manager of Engineering — Razorfish (Nov 2018 – present)
+- Runs staffing and interviewing for development and QA roles across experience levels and role types.
+- Works directly with staffing leads to source technical talent in Costa Rica and India, and fills project roles from both internal and external candidates.
+- Works with project managers on resource start and end dates, role rates and cost, and staffing adjustments to protect margin.
+- Tech Lead and primary Adobe Experience Manager developer on UC Health (AEM 6.5 on-premise) from 2018 to 2023, while developing on Disney Rewards at the same time.
+- Tech Lead on Disney Rewards from 2022, overlapping with UC Health, until the GVP of Technology and CTO at the time entrusted him with leading Labcorp, which he still leads.
+- Delivered both of his 2026 Labcorp projects, Marker by Labcorp and Thrive 5 Personalization, into production as Adobe Architect and Tech Lead; this led to retainer work through the end of 2026, with the potential for more in 2027.
+- On Thrive 5 Personalization, owned the solution architecture across AEM, App Builder, AEP/AJO and a downstream HIPAA-compliant Patient Portal; his team built the App Builder and AEP/AJO layers, and he coordinated partner teams and client stakeholders.
+- Takes architecture recommendations through client architecture review boards within the wider enterprise infrastructure.
+- Identifies every data path in an architecture for security concerns and PHI handling under HIPAA.
+- Contributes directly to statements of work, reviews RFPs, and vets technical requirements and levels of effort with delivery teams.
+- Builds slide decks, demos technical functionality to live audiences, and writes architecture research and discovery documentation.
+- Uses Claude, ChatGPT and other models day to day to draft architecture documents, write Confluence documentation against real codebases, automate Jira ticket resolution, and build his own tools that generate Word, Excel and PowerPoint deliverables.
 
-### Senior Web Developer — Interactive Knowledge (Sep 2012 – Oct 2018, 6 years)
+### Senior Web Developer — Interactive Knowledge (Sep 2012 – Oct 2018)
 - Built media-rich interactive experiences for non-profits, museums and educational institutions.
 - Shipped responsive, mobile-first applications in React and Vue against custom REST and microservice backends.
 
-### Front-End Web Developer — Lowe's Companies, Inc. (2012)
-- Contributed to the e-commerce platform behind Lowes.com; brand sites, performance and SEO audits.
-
-### Junior Web Developer — Cedar Management Group (May 2008 – Jul 2010)
-- Custom WordPress themes and plugins; CMS integrations for non-technical clients.
-
 ## Selected projects
 
-- **Labcorp OnDemand** (Razorfish, 2026) — full Adobe Experience Cloud architecture: AEMaaCS, App Builder, AEP, Journey Optimizer, Decision Management, XDM.
-- **Disney Rewards** (Razorfish, 2019–present) — custom WordPress platform, bespoke Gutenberg blocks, ACF Pro field architecture, Chase Bank API integration via JWT/JOSE, Adobe Analytics + CJA, Adobe Target. Shipped through GitLab CI/CD.
-- **UC Health** (Razorfish, 2019–2023) — multi-module AEM project on Maven: OSGi services, Sling models and servlets, HTL templating, JCR packaging, Vue 2 clientlibs, Epic EHR integration architecture.
-- **Claude × MCP × WordPress** (personal, 2025–26) — self-hosted Linux server wiring GitHub webhooks and the Model Context Protocol to Claude apps for prompt-driven WordPress publishing and code management.
-- **Unity FPS** (personal, multi-year) — DOOM-style first-person shooter in Unity and C#, with Unity MCP, custom Claude connectors, and AI art and map-generation pipelines.
+- **Thrive 5 Personalization** (Razorfish for Labcorp, 2026) — Adobe Architect and Tech Lead; solution architecture across AEMaaCS, App Builder, AEP/AJO and a HIPAA-compliant Patient Portal, with his team building App Builder and AEP/AJO. In production.
+- **Marker by Labcorp** (Razorfish for Labcorp, 2026) — Adobe Architect and Tech Lead; led the technical implementation and the team building custom AEM as a Cloud Service components, back end and front end, for a media-driven landing page for a custom Labcorp product, delivered on a tight timeline. Worked on camera with the client throughout, ran ticket management and partnered closely with the project manager. In production.
+- **Disney Rewards** (Razorfish, developer from 2019, Tech Lead 2022–2026, until moving to Labcorp) — custom WordPress platform, bespoke Gutenberg blocks, ACF Pro field architecture, Chase Bank API integration via JWT/JOSE, Adobe CJA, Adobe Target. Shipped through GitLab CI/CD.
+- **UC Health** (Razorfish, Tech Lead 2018–2023) — Tech Lead and primary AEM developer on AEM 6.5 on-premise; multi-module AEM project on Maven: OSGi services, Sling models and servlets, HTL templating, JCR packaging, Vue 2 clientlibs, Epic EHR integration architecture.
 
 ## Leadership scope
 
-- Team size led: up to 10 front-end and back-end engineers.
-- Technical lead on three flagship accounts: Disney Rewards, UC Health, Labcorp OnDemand.
+- Leads front-end, back-end and QA engineers.
+- Hires for development and QA roles at every experience level.
+- Resource planning with project managers: start and end dates, role rates, cost and margin.
+- Architecture governance: client architecture review boards; HIPAA and PHI data-path review.
+- Pre-sales and scoping: statements of work, RFP review, technical requirements and level-of-effort estimates.
+- AI-augmented delivery: Claude, ChatGPT and other models for architecture documents, Confluence documentation, Jira ticket automation and Office deliverables.
+- Technical lead on flagship accounts, often more than one at once: UC Health (2018–2023), Disney Rewards (2022–2026), Labcorp (2026–present).
 - Hiring reach: US, India, Costa Rica — including hiring his own successor on Disney Rewards.
-- Partners with VP-and-above technical leaders; known by name to the CTO.
+- Partners with VP-and-above technical leaders; entrusted with leading Labcorp by the GVP of Technology and CTO at the time.
 - Sets coding conventions, naming, formatting and review standards across teams.
 
 ## Core skills
 
-Engineering management, technical leadership, system design, technical analysis and documentation, Adobe Experience Manager (AEM and AEMaaCS), Adobe App Builder, Adobe I/O Runtime, Adobe Experience Platform, Adobe Journey Optimizer, Decision Management and Offer Decisioning, Adobe Experience Platform Data Collection, XDM schema modeling, Adobe Target, Adobe Analytics, Customer Journey Analytics, WordPress, Gutenberg, ACF Pro, PHP 8, Java, JavaScript, React, Vue.js, Node.js, Sass/SCSS, MySQL, REST API design, Composer, Webpack, Git, CI/CD pipelines, GitLab CI/CD, Azure DevOps, Docker, Linux server administration, AWS, Azure, OAuth/OIDC, JWT/JOSE, WCAG accessibility, Agile/SAFe, Epic EHR, Unity 3D, C#, Model Context Protocol.
+Engineering management, technical leadership, technical hiring and interviewing, offshore and nearshore talent sourcing, resource planning and margin, architecture review boards, HIPAA and PHI data-flow review, technical presentations and live demos, discovery documentation, system design, technical analysis and documentation, Adobe Experience Manager (AEM and AEMaaCS), Adobe App Builder, Adobe I/O Runtime, Adobe Experience Platform, Adobe Journey Optimizer, Decision Management and Offer Decisioning, Adobe Experience Platform Data Collection, XDM schema modeling, Adobe Target, Adobe Analytics, Customer Journey Analytics, WordPress, Gutenberg, ACF Pro, PHP 8, Java, JavaScript, React, Vue.js, Node.js, Sass/SCSS, MySQL, REST API design, Composer, Webpack, Git, CI/CD pipelines, GitLab CI/CD, Azure DevOps, Docker, Linux server administration, AWS, Azure, OAuth/OIDC, JWT/JOSE, WCAG accessibility, Agile/SAFe, Epic EHR, statements of work, RFP response, technical estimation, AI-assisted documentation (Claude, ChatGPT), Jira and Confluence automation.
+
+## Off the clock
+
+Personal side projects, separate from client work:
+
+- **Claude × MCP × WordPress** (personal, 2025–26) — self-hosted Linux server wiring GitHub webhooks and the Model Context Protocol to Claude apps for prompt-driven WordPress publishing and code management.
+- **Unity FPS** (personal, multi-year) — DOOM-style first-person shooter in Unity and C#, with Unity MCP, custom Claude connectors, and AI art and map-generation pipelines.
 
 ## Education
 
