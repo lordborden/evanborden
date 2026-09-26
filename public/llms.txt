@@ -54,6 +54,9 @@ Evan owned the solution architecture for a personalization program spanning AEM 
 - Built media-rich interactive experiences for non-profits, museums and educational institutions.
 - Shipped responsive, mobile-first applications in React and Vue against custom REST and microservice backends.
 
+### Earlier roles (2008 – 2012)
+- A technical career that started in 2008, with earlier web development roles laying the groundwork for the positions above.
+
 ## Selected projects
 
 - **Thrive 5 Personalization** (Razorfish for Labcorp, 2026) — Adobe Architect and Tech Lead; solution architecture across AEMaaCS, App Builder, AEP/AJO and a HIPAA-compliant Patient Portal, with his team building App Builder and AEP/AJO. In production.

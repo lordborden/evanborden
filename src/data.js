@@ -35,6 +35,15 @@ export const SITE_DATA = {
         "Partnered with UX to translate design comps into accessible, performant interfaces.",
       ],
     },
+    {
+      role: "Earlier roles",
+      company: "",
+      period: "2008 — 2012",
+      tag: "",
+      bullets: [
+        "A technical career that started in 2008, with earlier web development roles laying the groundwork for everything above.",
+      ],
+    },
   ],
 
   education: [

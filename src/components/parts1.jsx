@@ -151,7 +151,7 @@ function Experience() {
               <div>
                 <div className="v5-xp-head">
                   <h3 className="v5-xp-role">{e.role}</h3>
-                  <span className="v5-xp-co">/ {e.company}</span>
+                  {e.company ? <span className="v5-xp-co">/ {e.company}</span> : null}
                   {e.tag ? <span className="v5-xp-tag">{e.tag}</span> : null}
                 </div>
                 <ul className="v5-xp-bullets">
