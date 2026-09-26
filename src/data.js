@@ -41,7 +41,7 @@ export const SITE_DATA = {
       period: "2008 — 2012",
       tag: "",
       bullets: [
-        "A technical career that started in 2008, with earlier web development roles laying the groundwork for everything above.",
+        "Professionally since 2008, but it started long before that: DOS commands on Windows PCs as a kid, the Linux command line in high school, building PCs and teaching myself to build websites from online tutorials. Technology has been a lifelong fascination, and I always knew I wanted to build my career around it.",
       ],
     },
   ],

@@ -55,7 +55,7 @@ Evan owned the solution architecture for a personalization program spanning AEM 
 - Shipped responsive, mobile-first applications in React and Vue against custom REST and microservice backends.
 
 ### Earlier roles (2008 – 2012)
-- A technical career that started in 2008, with earlier web development roles laying the groundwork for the positions above.
+- Evan has worked professionally since 2008, but it started long before that: DOS commands on Windows PCs as a child, the Linux command line in high school, building PCs and teaching himself to build websites from online tutorials. Technology has been a lifelong fascination, and he always knew he wanted to build his career around it.
 
 ## Selected projects
 
