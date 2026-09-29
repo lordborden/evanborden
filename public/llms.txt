@@ -1,12 +1,12 @@
 # Evan Borden — Engineering Manager & Adobe Architect
 
-> Evan Borden is an engineering manager and Adobe solutions architect based in Charlotte, North Carolina. At Razorfish, a martech agency, he manages engineering staffing, hiring and resource planning, and serves as technical lead and architect across flagship client accounts — Disney Rewards, UC Health and Labcorp. He was Tech Lead on Disney Rewards from 2022 until the GVP of Technology and CTO at the time entrusted him with leading Labcorp, which he still leads. He delivered both of his 2026 Labcorp projects into production, which led to retainer work through the end of 2026, with the potential for more in 2027.
+> Evan Borden is an engineering manager and Adobe solutions architect based in Charlotte, North Carolina. At Razorfish, a martech agency, he manages engineering staffing, hiring and resource planning, and serves as technical lead and architect across flagship client accounts — Disney Rewards, UC Health and Labcorp. He was Tech Lead on Disney Rewards from 2022 until the GVP of Technology and CTO at the time entrusted him with leading Labcorp, which he still leads. He delivered both of his 2026 Labcorp projects into production, which led to continued work with Labcorp.
 
 Site: https://www.evanborden.com/
 LinkedIn: https://www.linkedin.com/in/evan-borden/
 Email: evanpatrickborden@outlook.com
 Location: Charlotte, NC, United States
-Currently: Manager of Engineering at Razorfish (November 2018 – present)
+Currently: Manager of Engineering at Razorfish (since 2024; at Razorfish since November 2018)
 Open to: Engineering Manager, Director of Engineering, Technical Director, Solutions Architect
 
 ## Summary
@@ -15,7 +15,7 @@ Evan Borden leads front-end, back-end and QA engineering teams across multi-year
 
 ## Current work: Labcorp (2026)
 
-Evan delivered both of his 2026 Labcorp projects into production: **Marker by Labcorp** and **Thrive 5 Personalization**. On both he served as **Adobe Architect and Tech Lead**. That success turned into retainer work through the end of 2026, with the potential for more in 2027.
+Evan delivered both of his 2026 Labcorp projects into production: **Marker by Labcorp** and **Thrive 5 Personalization**. On both he served as **Adobe Architect and Tech Lead**. That success led to continued work with Labcorp.
 
 ### Marker by Labcorp
 
@@ -36,13 +36,12 @@ Evan owned the solution architecture for a personalization program spanning AEM 
 
 ## Experience
 
-### Manager of Engineering — Razorfish (Nov 2018 – present)
+### Manager of Engineering — Razorfish (2024 – present)
+- Promoted to Manager of Engineering in 2024.
 - Runs staffing and interviewing for development and QA roles across experience levels and role types.
 - Works directly with staffing leads to source technical talent in Costa Rica and India, and fills project roles from both internal and external candidates.
 - Works with project managers on resource start and end dates, role rates and cost, and staffing adjustments to protect margin.
-- Tech Lead and primary Adobe Experience Manager developer on UC Health (AEM 6.5 on-premise) from 2018 to 2023, while developing on Disney Rewards at the same time.
-- Tech Lead on Disney Rewards from 2022, overlapping with UC Health, until the GVP of Technology and CTO at the time entrusted him with leading Labcorp, which he still leads.
-- Delivered both of his 2026 Labcorp projects, Marker by Labcorp and Thrive 5 Personalization, into production as Adobe Architect and Tech Lead; this led to retainer work through the end of 2026, with the potential for more in 2027.
+- Delivered both of his 2026 Labcorp projects, Marker by Labcorp and Thrive 5 Personalization, into production as Adobe Architect and Tech Lead; this led to continued work with Labcorp.
 - On Thrive 5 Personalization, owned the solution architecture across AEM, App Builder, AEP/AJO and a downstream HIPAA-compliant Patient Portal; his team built the App Builder and AEP/AJO layers, and he coordinated partner teams and client stakeholders.
 - Takes architecture recommendations through client architecture review boards within the wider enterprise infrastructure.
 - Identifies every data path in an architecture for security concerns and PHI handling under HIPAA.
@@ -50,11 +49,15 @@ Evan owned the solution architecture for a personalization program spanning AEM 
 - Builds slide decks, demos technical functionality to live audiences, and writes architecture research and discovery documentation.
 - Uses Claude, ChatGPT and other models day to day to draft architecture documents, write Confluence documentation against real codebases, automate Jira ticket resolution, and build his own tools that generate Word, Excel and PowerPoint deliverables.
 
+### Senior Engineer — Razorfish (Nov 2018 – 2024)
+- Tech Lead and primary Adobe Experience Manager developer on UC Health (AEM 6.5 on-premise) from 2018 to 2023, while developing on Disney Rewards at the same time.
+- Stepped up to Tech Lead on Disney Rewards in 2022, overlapping with UC Health, and continued as Tech Lead after his 2024 promotion until the GVP of Technology and CTO at the time entrusted him with leading Labcorp, which he still leads.
+
 ### Senior Web Developer — Interactive Knowledge (Sep 2012 – Oct 2018)
 - Built media-rich interactive experiences for non-profits, museums and educational institutions.
 - Shipped responsive, mobile-first applications in React and Vue against custom REST and microservice backends.
 
-### Earlier roles (2008 – 2012)
+### Where it started (2008 – 2012)
 - Evan has worked professionally since 2008, but it started long before that: DOS commands on Windows PCs as a child, the Linux command line in high school, building PCs and teaching himself to build websites from online tutorials. Technology has been a lifelong fascination, and he always knew he wanted to build his career around it.
 
 ## Selected projects

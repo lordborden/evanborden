@@ -7,7 +7,7 @@ const tidy = V5_tidy;
 const tidyRange = (s) => (typeof s === "string" ? s.replace(/\s*—\s*/g, " – ") : s);
 
 const CAT_ORDER = [
-  "Leadership & Delivery", "Architecture", "Frontend", "Backend", "CMS / DAM", "Cloud & Infrastructure",
+  "Architecture", "Frontend", "Backend", "CMS / DAM", "Cloud & Infrastructure",
   "DevOps & Tooling", "Data & Analytics", "CDP & Personalization",
   "Security & Compliance", "AI & Machine Learning", "Testing & QA",
   "Healthcare",
@@ -25,11 +25,11 @@ function Skills() {
     <section className="v5-band alt" id="skills">
       <div className="v5-inner">
         <div className="v5-kicker v5-rev"><span className="ix">04</span> Capabilities</div>
-        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>Leadership, architecture and the hands-on stack.</h2>
+        <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>Architecture and the hands-on stack.</h2>
         <p className="v5-lede v5-rev" style={{ marginBottom: 40 }}>
           If it's listed here, I know it well and use it in real work — from
-          hiring, resourcing and architecture governance to Adobe Experience
-          Cloud, enterprise CMS, front and back end, cloud and CI/CD.
+          Adobe Experience Cloud and enterprise CMS to front and back end,
+          cloud and CI/CD.
         </p>
         <div className="v5-skills">
           {cats.map((cat) => (
@@ -129,6 +129,7 @@ function Contact() {
     { k: "Email", v: D.email, href: "mailto:" + D.email },
     { k: "Phone", v: D.phone, href: "tel:" + (D.phone || "").replace(/\./g, "") },
     { k: "LinkedIn", v: "in/evan-borden", href: D.linkedin, ext: true },
+    { k: "Résumé", v: "Download PDF", href: "/assets/Evan_Borden_Resume.pdf", ext: true },
   ];
   return (
     <section className="v5-band v5-contact-band" id="contact">

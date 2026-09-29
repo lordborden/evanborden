@@ -1,9 +1,8 @@
 # evanborden.com
 
-# Default: welcome, with private pages kept out of the index.
+# Default: welcome.
 User-agent: *
 Allow: /
-Disallow: /ilu.html
 
 # AI crawlers and answer engines — explicitly welcome.
 # These read the site to answer questions about Evan Borden's background.

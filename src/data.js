@@ -15,13 +15,22 @@ export const SITE_DATA = {
     {
       role: "Manager of Engineering",
       company: "Razorfish",
-      period: "Nov 2018 — Present",
+      period: "2024 — Present",
       tag: "current",
       bullets: [
-        "Own hiring, staffing and resource planning for development and QA roles across my accounts, along with the architecture those teams build.",
+        "Promoted to Manager of Engineering in 2024. Own hiring, staffing and resource planning for development and QA roles across my accounts, along with the architecture those teams build.",
+        "Continued as Tech Lead on Disney Rewards until the GVP of Technology and CTO at the time entrusted me with leading Labcorp, which I still lead today.",
+        "Adobe Architect and Tech Lead on Marker by Labcorp and Thrive 5 Personalization. Took both into production in 2026, which led to continued work with Labcorp.",
+      ],
+    },
+    {
+      role: "Senior Engineer",
+      company: "Razorfish",
+      period: "Nov 2018 — 2024",
+      tag: "",
+      bullets: [
         "Tech Lead and primary Adobe Experience Manager developer on UC Health (AEM 6.5 on-premise) from 2018 to 2023, while developing on Disney Rewards in parallel.",
-        "Tech Lead on Disney Rewards from 2022 until the GVP of Technology and CTO at the time entrusted me with leading Labcorp, which I still lead today.",
-        "Adobe Architect and Tech Lead on Marker by Labcorp and Thrive 5 Personalization. Took both into production in 2026, earning retainer work through the end of the year, with the potential for more in 2027.",
+        "Stepped up to Tech Lead on Disney Rewards in 2022, overlapping with UC Health.",
       ],
     },
     {
@@ -36,7 +45,7 @@ export const SITE_DATA = {
       ],
     },
     {
-      role: "Earlier roles",
+      role: "Where it started",
       company: "",
       period: "2008 — 2012",
       tag: "",
@@ -53,12 +62,6 @@ export const SITE_DATA = {
 
   // Skills by category, with the work that backs each one
   skills: [
-    { cat: "Leadership & Delivery", skill: "Hiring & Interviewing", notes: "Razorfish — interview and place development and QA engineers across experience levels and role types; hired my own successor on Disney Rewards." },
-    { cat: "Leadership & Delivery", skill: "Global Talent Sourcing", notes: "Razorfish — work with staffing leads to find technical resources in Costa Rica and India, alongside internal bench and external candidates." },
-    { cat: "Leadership & Delivery", skill: "Resource Planning & Margin", notes: "Razorfish — refine role start and end dates with project managers; understand role rates and cost, and adjust staffing to hold margin." },
-    { cat: "Leadership & Delivery", skill: "SOWs, RFPs & Estimation", notes: "Razorfish — contribute directly to statements of work, review RFPs, and vet technical requirements and levels of effort with delivery teams." },
-    { cat: "Leadership & Delivery", skill: "Technical Presentations & Live Demos", notes: "Slide decks and live demos of technical functionality for client and internal audiences; discovery documentation and architecture research." },
-    { cat: "Leadership & Delivery", skill: "Architecture Review Boards", notes: "Labcorp Thrive 5 — present and defend architecture recommendations to client review boards within the wider enterprise infrastructure." },
     { cat: "Security & Compliance", skill: "HIPAA & PHI Data-Flow Review", notes: "Labcorp and UC Health — identify every data path in an architecture for security concerns and PHI exposure under HIPAA." },
     { cat: "Cloud & Infrastructure", skill: "AWS", notes: "Personal projects (multi-year) — VM (EC2) provisioning, security groups, networking, DNS / Route 53, domain management, cost monitoring." },
     { cat: "Cloud & Infrastructure", skill: "Azure", notes: "Personal projects (multi-year) — VM provisioning, network security groups, DNS, domain management, cost analysis." },

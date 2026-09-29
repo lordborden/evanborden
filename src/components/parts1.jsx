@@ -140,8 +140,8 @@ function Experience() {
         <div className="v5-kicker v5-rev"><span className="ix">02</span> Experience</div>
         <h2 className="v5-h2 v5-rev" style={{ marginBottom: 14 }}>A career built shipping the hard parts.</h2>
         <p className="v5-lede v5-rev" style={{ marginBottom: 48 }}>
-          Managing engineering teams at Razorfish, built on years of shipping
-          interactive work at Interactive Knowledge — from
+          From Senior Engineer to Manager of Engineering at Razorfish, built on
+          years of shipping interactive work at Interactive Knowledge — from
           hands-on code to staffing, architecture governance and delivery.
         </p>
         <div className="v5-xp">
