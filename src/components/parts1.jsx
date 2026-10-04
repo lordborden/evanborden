@@ -70,7 +70,7 @@ function Hero() {
           <a className="v5-btn v5-btn-ghost" href={"mailto:" + (D.email || "")}>Start a conversation</a>
         </div>
       </div>
-      <div className="v5-scrollcue"><span>scroll</span><span className="bar" /></div>
+      <div className="v5-scrollcue"><span className="lbl">scroll</span><span className="bar" /></div>
     </header>
   );
 }

@@ -232,6 +232,8 @@ body { margin: 0; background: var(--bg); overflow-x: hidden; }
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
+/* solid chip so the label reads cleanly over the photo/column divider line behind it */
+.v5-scrollcue .lbl { padding: 5px 8px 5px 10px; background: var(--bg); border: 1px solid var(--line2); border-radius: 4px; color: var(--ink2); }
 .v5-scrollcue .bar { width: 1px; height: 34px; background: linear-gradient(var(--accent), transparent); }
 
 /* MARQUEE */
