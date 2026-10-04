@@ -1,4 +1,4 @@
-/* v5 Terminal Lime — parts 2: Skills, Projects, References, Off-clock, Contact, App + parallax */
+/* v5 Terminal Sage — parts 2: Skills, Projects, References, Off-clock, Contact, App + parallax */
 import React, { useState, useEffect } from "react";
 import { SITE_DATA } from "../data.js";
 import { Nav, Hero, Marquee, About, Experience, Leadership, V5_SECTIONS, V5_tidy } from "./parts1.jsx";

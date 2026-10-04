@@ -1,4 +1,4 @@
-/* v5 Terminal Lime — parts 1: Nav, Hero, About, Experience, Leadership */
+/* v5 Terminal Sage — parts 1: Nav, Hero, About, Experience, Leadership */
 import React, { useState, useEffect } from "react";
 import { SITE_DATA } from "../data.js";
 const D = SITE_DATA;
